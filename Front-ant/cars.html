@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Cars - Auto Delux</title>
+    <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="container">
+    <div class="top-bar-left">
+      <span><i class="fas fa-map-marker-alt"></i> Malappuram,Alathoorpadi Kerala</span>
+      <a href="tel:9526226011"><i class="fas fa-phone"></i> 9526226011</a>
+    </div>
+    <div class="top-bar-right">
+      <a href="https://www.facebook.com/profile.php?id=100088395416692" target="_blank" rel="noopener noreferrer">
+  <i class="fab fa-facebook-f"></i>
+</a>
+      <a href="https://www.instagram.com/auto_deluxe_usedcars?igsh=YW5ybHA4OWx1eHh4" target="_blank">
+  <i class="fab fa-instagram"></i>
+</a>
+      <a href="https://wa.me/919526226011" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="container">
+<a href="index.html" class="logo">
+  <img src="images/WhatsApp Image 2026-04-29 at 3.02.27 PM.jpeg" alt="Auto Delux Logo">
+  <div class="logo-text">
+    <h1>AUTO DELUX</h1>
+    <span>Premium Used Cars</span>
+  </div>
+</a>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="cars.html">Cars</a>
+      <a href="sell-car.html">Sell Your Car</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://wa.me/919526226011" class="btn-whatsapp-nav"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="container">
+    <h2>ALL CARS</h2>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <span class="current">Cars</span>
+    </div>
+  </div>
+</div>
+
+<section class="cars-page">
+  <div class="container">
+    <div class="cars-layout">
+      <!-- FILTERS SIDEBAR -->
+      <aside class="filters-sidebar">
+        <div class="filter-header">
+          <h3><i class="fas fa-filter"></i> FILTERS</h3>
+          <button class="filter-clear" id="clearFilters">Clear All</button>
+        </div>
+
+        <div class="filter-group">
+          <h4>Search</h4>
+          <input type="text" id="fSearch" placeholder="Car name / model..." class="form-control" style="margin-bottom:0">
+        </div>
+
+        <div class="filter-group">
+          <h4>Brand</h4>
+          <select id="fBrand" class="brand-select">
+            <option value="">All Brands</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <h4>Fuel Type</h4>
+          <label class="filter-check"><input type="checkbox" class="fFuel" value="Petrol"> Petrol</label>
+          <label class="filter-check"><input type="checkbox" class="fFuel" value="Diesel"> Diesel</label>
+          <label class="filter-check"><input type="checkbox" class="fFuel" value="CNG"> CNG</label>
+          <label class="filter-check"><input type="checkbox" class="fFuel" value="Electric"> Electric</label>
+        </div>
+
+        <div class="filter-group">
+          <h4>Transmission</h4>
+          <label class="filter-check"><input type="checkbox" class="fTrans" value="Manual"> Manual</label>
+          <label class="filter-check"><input type="checkbox" class="fTrans" value="Automatic"> Automatic</label>
+        </div>
+
+        <div class="filter-group filter-range">
+          <h4>Year</h4>
+          <div class="range-inputs">
+            <input type="number" id="fYearMin" placeholder="From Year" min="2000" max="2024">
+            <input type="number" id="fYearMax" placeholder="To Year" min="2000" max="2024">
+          </div>
+        </div>
+
+        <div class="filter-group filter-range">
+          <h4>KM Driven</h4>
+          <div class="range-inputs">
+            <input type="number" id="fKmMin" placeholder="Min KM">
+            <input type="number" id="fKmMax" placeholder="Max KM">
+          </div>
+        </div>
+
+        <div class="filter-group filter-range">
+          <h4>Price Range</h4>
+          <div class="range-inputs">
+            <input type="number" id="fPriceMin" placeholder="Min ₹">
+            <input type="number" id="fPriceMax" placeholder="Max ₹">
+          </div>
+        </div>
+
+        <button class="btn-apply-filter" id="applyFilters"><i class="fas fa-search"></i> APPLY FILTER</button>
+      </aside>
+
+      <!-- CARS MAIN -->
+      <main class="cars-main">
+        <div class="top-bar-filter">
+          <div class="results-count">Showing <strong id="resultCount">0</strong> cars</div>
+          <div class="sort-bar">
+            <label>Sort by:</label>
+            <select id="sortSelect">
+              <option value="latest">Latest</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="km-asc">KM: Low to High</option>
+              <option value="km-desc">KM: High to Low</option>
+              <option value="year-desc">Year: Newest</option>
+              <option value="year-asc">Year: Oldest</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="cars-grid" id="carsGrid"></div>
+        <div class="no-results" id="noResults" style="display:none;">
+          <i class="fas fa-car-crash"></i>
+          <h3>No Cars Found</h3>
+          <p>Try adjusting your filters</p>
+        </div>
+        <div class="pagination" id="pagination"></div>
+      </main>
+    </div>
+  </div>
+</section>
+
+<!-- Footer (compact) -->
+<footer class="footer">
+  <div class="footer-bottom"><div class="container">© 2024 Auto Delux. All Rights Reserved. | <a href="index.html" style="color:var(--gold)">Home</a></div></div>
+</footer>
+
+<a href="https://wa.me/919526226011" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script src="js/main.js"></script>
+<script>
+  AOS.init({ duration: 600, once: true });
+
+  const PER_PAGE = 6;
+  let currentPage = 1;
+  let filteredCars = [];
+
+  function getAllCars() { return getLS('cars').filter(c => c.status === 'active'); }
+
+  function applyFilters() {
+    let cars = getAllCars();
+    const q = document.getElementById('fSearch').value.trim().toLowerCase();
+    const brand = document.getElementById('fBrand').value;
+    const fuels = [...document.querySelectorAll('.fFuel:checked')].map(el => el.value);
+    const trans = [...document.querySelectorAll('.fTrans:checked')].map(el => el.value);
+    const yearMin = parseInt(document.getElementById('fYearMin').value) || 0;
+    const yearMax = parseInt(document.getElementById('fYearMax').value) || 9999;
+    const kmMin = parseInt(document.getElementById('fKmMin').value) || 0;
+    const kmMax = parseInt(document.getElementById('fKmMax').value) || Infinity;
+    const priceMin = parseInt(document.getElementById('fPriceMin').value) || 0;
+    const priceMax = parseInt(document.getElementById('fPriceMax').value) || Infinity;
+
+    if (q) cars = cars.filter(c => c.name.toLowerCase().includes(q) || c.model.toLowerCase().includes(q) || c.brand.toLowerCase().includes(q));
+    if (brand) cars = cars.filter(c => c.brand === brand);
+    if (fuels.length) cars = cars.filter(c => fuels.includes(c.fuel));
+    if (trans.length) cars = cars.filter(c => trans.includes(c.transmission));
+    cars = cars.filter(c => c.year >= yearMin && c.year <= yearMax);
+    cars = cars.filter(c => c.km >= kmMin && c.km <= kmMax);
+    cars = cars.filter(c => c.price >= priceMin && c.price <= priceMax);
+
+    // Sort
+    const sort = document.getElementById('sortSelect').value;
+    if (sort === 'price-asc') cars.sort((a,b) => a.price - b.price);
+    else if (sort === 'price-desc') cars.sort((a,b) => b.price - a.price);
+    else if (sort === 'km-asc') cars.sort((a,b) => a.km - b.km);
+    else if (sort === 'km-desc') cars.sort((a,b) => b.km - a.km);
+    else if (sort === 'year-desc') cars.sort((a,b) => b.year - a.year);
+    else if (sort === 'year-asc') cars.sort((a,b) => a.year - b.year);
+    else cars.sort((a,b) => new Date(b.createdAt) - new Date(a.createdAt));
+
+    filteredCars = cars;
+    currentPage = 1;
+    renderCars();
+  }
+
+  function renderCars() {
+    const grid = document.getElementById('carsGrid');
+    const noRes = document.getElementById('noResults');
+    const count = document.getElementById('resultCount');
+    count.textContent = filteredCars.length;
+
+    if (!filteredCars.length) {
+      grid.innerHTML = '';
+      noRes.style.display = 'block';
+      document.getElementById('pagination').innerHTML = '';
+      return;
+    }
+    noRes.style.display = 'none';
+    const start = (currentPage - 1) * PER_PAGE;
+    const pageCars = filteredCars.slice(start, start + PER_PAGE);
+    grid.innerHTML = pageCars.map(c => carCardHTML(c)).join('');
+    renderPagination();
+  }
+
+  function renderPagination() {
+    const total = Math.ceil(filteredCars.length / PER_PAGE);
+    const pag = document.getElementById('pagination');
+    if (total <= 1) { pag.innerHTML = ''; return; }
+    let html = `<button class="page-btn" onclick="goPage(${currentPage-1})" ${currentPage===1?'disabled':''}><i class="fas fa-chevron-left"></i></button>`;
+    for (let i = 1; i <= total; i++) {
+      html += `<button class="page-btn ${i===currentPage?'active':''}" onclick="goPage(${i})">${i}</button>`;
+    }
+    html += `<button class="page-btn" onclick="goPage(${currentPage+1})" ${currentPage===total?'disabled':''}><i class="fas fa-chevron-right"></i></button>`;
+    pag.innerHTML = html;
+  }
+
+  function goPage(p) {
+    const total = Math.ceil(filteredCars.length / PER_PAGE);
+    if (p < 1 || p > total) return;
+    currentPage = p;
+    renderCars();
+    window.scrollTo({ top: 300, behavior: 'smooth' });
+  }
+
+  // Read URL params
+  function readURLParams() {
+    const p = new URLSearchParams(location.search);
+    if (p.get('q')) document.getElementById('fSearch').value = p.get('q');
+    if (p.get('brand')) document.getElementById('fBrand').value = p.get('brand');
+    if (p.get('fuel')) {
+      document.querySelectorAll('.fFuel').forEach(el => { if (el.value === p.get('fuel')) el.checked = true; });
+    }
+    if (p.get('minP')) document.getElementById('fPriceMin').value = p.get('minP');
+    if (p.get('maxP')) document.getElementById('fPriceMax').value = p.get('maxP');
+  }
+
+  document.getElementById('applyFilters').addEventListener('click', applyFilters);
+  document.getElementById('sortSelect').addEventListener('change', applyFilters);
+  document.getElementById('fSearch').addEventListener('input', applyFilters);
+  document.getElementById('clearFilters').addEventListener('click', () => {
+    document.getElementById('fSearch').value = '';
+    document.getElementById('fBrand').value = '';
+    document.querySelectorAll('.fFuel, .fTrans').forEach(el => el.checked = false);
+    ['fYearMin','fYearMax','fKmMin','fKmMax','fPriceMin','fPriceMax'].forEach(id => document.getElementById(id).value = '');
+    applyFilters();
+  });
+
+  readURLParams();
+  applyFilters();
+</script>
+</body>
+</html>
