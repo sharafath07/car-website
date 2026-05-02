@@ -6,6 +6,7 @@ import cors from "cors";
 import connectDB from "./config/db.js";
 import connectCloudinary from "./config/cloudinary.js";
 import carRouter from "./routes/carRoute.js";
+import adminRouter from "./routes/adminRoute.js";
 
 const app = express();
 
@@ -13,7 +14,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.use("/api/admin", adminRouter);
 app.use("/api/car", carRouter);
+
 
 // Test route
 app.get("/", (req, res) => {
