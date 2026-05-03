@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Details - Auto Delux</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-left">
+        <span><i class="fas fa-map-marker-alt"></i> Malappuram,Alathoorpadi Kerala</span>
+        <a href="tel:9526226011"><i class="fas fa-phone"></i> 9526226011</a>
+      </div>
+      <div class="top-bar-right">
+        <a href="https://www.facebook.com/profile.php?id=100088395416692" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/auto_deluxe_usedcars?igsh=YW5ybHA4OWx1eHh4" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/919526226011" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="images/Logo.jpeg" alt="Auto Delux Logo">
+        <div class="logo-text">
+          <h1>AUTO DELUX</h1>
+          <span>Premium Used Cars</span>
+        </div>
+      </a>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="cars.html">Cars</a>
+        <a href="sell-car.html">Sell Your Car</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://wa.me/919526226011" class="btn-whatsapp-nav"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="container">
+      <h2 id="pageTitle">CAR DETAILS</h2>
+      <div class="breadcrumb">
+        <a href="index.html">Home</a><span>›</span>
+        <a href="cars.html">Cars</a><span>›</span>
+        <span class="current" id="breadcrumbName">Details</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="car-details-page">
+    <div class="container">
+      <div id="carNotFound" style="display:none;text-align:center;padding:60px 20px;">
+        <i class="fas fa-car-crash" style="font-size:50px;color:#ccc;margin-bottom:20px;display:block;"></i>
+        <h3>Car Not Found</h3>
+        <p style="color:#999;margin:10px 0 20px;">This car may have been sold or removed.</p>
+        <a href="cars.html" class="btn btn-primary">Browse All Cars</a>
+      </div>
+
+      <div class="car-details-layout" id="carDetailsContent">
+        <!-- LEFT: Gallery & Description -->
+        <div>
+          <div class="gallery-main" data-aos="fade-right">
+            <img id="mainImage" src="" alt="Car Image">
+          </div>
+          <div class="gallery-thumbs" id="galleryThumbs" data-aos="fade-right" data-aos-delay="100"></div>
+
+          <div class="features-list" data-aos="fade-up"
+            style="background:white;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,.08);padding:25px;margin-top:25px;">
+            <h3>FEATURES</h3>
+            <div class="features-grid" id="featuresList"></div>
+          </div>
+
+          <div class="description-section" data-aos="fade-up" style="margin-top:25px;">
+            <h3>DESCRIPTION</h3>
+            <p id="carDescription"></p>
+          </div>
+
+          <!-- Similar Cars -->
+          <div data-aos="fade-up" style="margin-top:30px;">
+            <h3 style="font-size:20px;font-weight:700;color:var(--primary);margin-bottom:20px;">SIMILAR CARS</h3>
+            <div class="cars-grid" id="similarCars"></div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Info Card -->
+        <div>
+          <div class="car-info-card" data-aos="fade-left">
+            <h1 id="carName"></h1>
+            <div class="car-info-price" id="carPrice"></div>
+
+            <table class="specs-table" id="specsTable"></table>
+
+            <div class="car-actions">
+              <a id="waBtn" href="#" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i>
+                WHATSAPP</a>
+              <a href="tel:9526226011" class="btn btn-accent"><i class="fas fa-phone"></i> CALL NOW</a>
+            </div>
+
+            <div class="enquiry-form">
+              <h3><i class="fas fa-envelope"></i> Send Enquiry</h3>
+              <input type="text" class="form-control" id="enqName" placeholder="Your Name *">
+              <input type="tel" class="form-control" id="enqPhone" placeholder="Your Phone *">
+              <textarea class="form-control" id="enqMessage" placeholder="Your Message..."></textarea>
+              <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="submitEnquiry()">
+                <i class="fas fa-paper-plane"></i> SEND ENQUIRY
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-bottom">
+      <div class="container">© 2024 Auto Delux. All Rights Reserved. | <a href="index.html"
+          style="color:var(--gold)">Home</a></div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/919526226011" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    AOS.init({ duration: 600, once: true });
+
+    const featureIcons = {
+      'ABS': 'fa-car-crash', 'Airbags': 'fa-shield-alt', 'AC': 'fa-snowflake',
+      'Power Steering': 'fa-steering-wheel', 'Power Windows': 'fa-window-maximize',
+      'Alloy Wheels': 'fa-circle', 'Reverse Camera': 'fa-video',
+      'Touch Screen': 'fa-tablet-alt', 'Cruise Control': 'fa-tachometer-alt'
+    };
+
+    function loadCarDetails() {
+      const id = parseInt(new URLSearchParams(location.search).get('id'));
+      const cars = getLS('cars');
+      const car = cars.find(c => c.id === id);
+
+      if (!car) {
+        document.getElementById('carNotFound').style.display = 'block';
+        document.getElementById('carDetailsContent').style.display = 'none';
+        return;
+      }
+
+      document.title = car.name + ' - Auto Delux';
+      document.getElementById('pageTitle').textContent = car.name;
+      document.getElementById('breadcrumbName').textContent = car.name;
+      document.getElementById('carName').textContent = car.name;
+      document.getElementById('carPrice').textContent = formatPrice(car.price);
+      document.getElementById('carDescription').textContent = car.description;
+
+      // Main image
+      const mainImg = car.mainImage || 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&q=80';
+      document.getElementById('mainImage').src = mainImg;
+
+      // Gallery
+      const allImgs = [...new Set([mainImg, ...(car.galleryImages || [])])];
+      document.getElementById('galleryThumbs').innerHTML = allImgs.map((img, i) =>
+        `<img src="${img}" class="gallery-thumb ${i === 0 ? 'active' : ''}" onclick="setMainImg(this, '${img}')" loading="lazy">`
+      ).join('');
+
+      // Specs
+      const specs = [
+        ['fa-car', 'Brand', car.brand],
+        ['fa-tag', 'Model', car.model],
+        ['fa-calendar', 'Year', car.year],
+        ['fa-gas-pump', 'Fuel Type', car.fuel],
+        ['fa-cog', 'Transmission', car.transmission],
+        ['fa-tachometer-alt', 'KM Driven', formatKm(car.km)],
+        ['fa-user', 'Owner', car.owner],
+        ['fa-shield-alt', 'Insurance', car.insurance],
+        ['fa-map-marker-alt', 'Location', car.location]
+      ];
+      document.getElementById('specsTable').innerHTML = specs.map(([icon, label, val]) => `
+      <tr>
+        <td><i class="fas ${icon}"></i> ${label}</td>
+        <td>${val}</td>
+      </tr>
+    `).join('');
+
+      // Features
+      const feats = car.features || [];
+      document.getElementById('featuresList').innerHTML = feats.length ? feats.map(f => `
+      <div class="feature-tag"><i class="fas ${featureIcons[f] || 'fa-check-circle'}" style="color:var(--gold)"></i> ${f}</div>
+    `).join('') : '<p style="color:#999">No features listed</p>';
+
+      // WhatsApp
+      const waMsg = encodeURIComponent(`Hi Auto Delux, I am interested in ${car.name}, please share details`);
+      document.getElementById('waBtn').href = `https://wa.me/${WA_NUMBER}?text=${waMsg}`;
+
+      // Similar cars
+      const similar = cars.filter(c => c.status === 'active' && c.id !== car.id && (c.brand === car.brand || c.fuel === car.fuel)).slice(0, 4);
+      document.getElementById('similarCars').innerHTML = similar.length ? similar.map(c => carCardHTML(c)).join('') : '<p style="color:#999">No similar cars found</p>';
+    }
+
+    function setMainImg(el, src) {
+      document.getElementById('mainImage').src = src;
+      document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
+      el.classList.add('active');
+    }
+
+    function submitEnquiry() {
+      const id = parseInt(new URLSearchParams(location.search).get('id'));
+      const cars = getLS('cars');
+      const car = cars.find(c => c.id === id);
+      const name = document.getElementById('enqName').value.trim();
+      const phone = document.getElementById('enqPhone').value.trim();
+      const message = document.getElementById('enqMessage').value.trim();
+
+      if (!name || !phone) { showToast('Please fill Name and Phone', 'error'); return; }
+      if (!/^\d{10}$/.test(phone)) { showToast('Enter valid 10-digit phone number', 'error'); return; }
+
+      const enquiries = getLS('enquiries');
+      enquiries.push({ id: generateId(), carId: id, carName: car?.name || '', name, phone, message: message || 'Interested in this car', createdAt: new Date().toISOString() });
+      setLS('enquiries', enquiries);
+
+      document.getElementById('enqName').value = '';
+      document.getElementById('enqPhone').value = '';
+      document.getElementById('enqMessage').value = '';
+      showToast('Enquiry sent! We will contact you soon.', 'success');
+    }
+
+    loadCarDetails();
+  </script>
+</body>
+
+</html>
