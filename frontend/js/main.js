@@ -1,6 +1,7 @@
 /* ============================================
    AUTO DELUX - Core JavaScript
    ============================================ */
+import { listCars } from './api.js';
 
 const WA_NUMBER = '919526226011';
 const PHONE = '9526226011';
@@ -8,158 +9,21 @@ const PHONE = '9526226011';
 /* ============================================
    DEMO CARS DATA (Preloaded on first visit)
    ============================================ */
-const DEMO_CARS = [
-  {
-    id: 1, name: 'Hyundai Verna', brand: 'Hyundai', model: 'Verna', year: 2019,
-    fuel: 'Petrol', transmission: 'Manual', km: 40000, owner: '1st Owner',
-    insurance: 'Valid', location: 'Panjal, Kerala', price: 790000,
-    description: 'Hyundai Verna 2019 Petrol Manual in excellent condition. Well maintained, smooth drive, all documents clear. Contact Auto Delux for more details. Single owner vehicle with full service history.',
-    features: ['ABS', 'Airbags', 'AC', 'Power Steering', 'Power Windows', 'Alloy Wheels', 'Reverse Camera', 'Touch Screen'],
-    mainImage: 'https://images.unsplash.com/photo-1590362891991-f776e747a588?w=800&q=80',
-    galleryImages: [
-      'https://images.unsplash.com/photo-1590362891991-f776e747a588?w=800&q=80',
-      'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&q=80',
-      'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&q=80',
-      'https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=800&q=80'
-    ],
-    status: 'active', createdAt: new Date(Date.now() - 1 * 86400000).toISOString()
-  },
-  {
-    id: 2, name: 'Maruti Suzuki Swift', brand: 'Maruti', model: 'Swift', year: 2018,
-    fuel: 'Petrol', transmission: 'Manual', km: 60000, owner: '1st Owner',
-    insurance: 'Valid', location: 'Kozhikode, Kerala', price: 540000,
-    description: 'Maruti Suzuki Swift 2018, excellent condition, all paperwork clear. Fuel efficient and perfect city car.',
-    features: ['ABS', 'AC', 'Power Steering', 'Power Windows'],
-    mainImage: 'https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=800&q=80',
-    galleryImages: [
-      'https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=800&q=80',
-      'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=800&q=80'
-    ],
-    status: 'active', createdAt: new Date(Date.now() - 2 * 86400000).toISOString()
-  },
-  {
-    id: 3, name: 'Honda City VX', brand: 'Honda', model: 'City', year: 2019,
-    fuel: 'Petrol', transmission: 'Automatic', km: 35000, owner: '1st Owner',
-    insurance: 'Valid', location: 'Thrissur, Kerala', price: 880000,
-    description: 'Honda City VX Automatic 2019, premium sedan in showroom condition. Sunroof, alloy wheels, top model.',
-    features: ['ABS', 'Airbags', 'AC', 'Power Steering', 'Power Windows', 'Alloy Wheels', 'Touch Screen', 'Cruise Control'],
-    mainImage: 'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&q=80',
-    galleryImages: [
-      'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&q=80',
-      'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=800&q=80'
-    ],
-    status: 'active', createdAt: new Date(Date.now() - 3 * 86400000).toISOString()
-  },
-  {
-    id: 4, name: 'Toyota Innova Crysta', brand: 'Toyota', model: 'Innova Crysta', year: 2017,
-    fuel: 'Diesel', transmission: 'Manual', km: 75000, owner: '1st Owner',
-    insurance: 'Valid', location: 'Malappuram, Kerala', price: 1250000,
-    description: 'Toyota Innova Crysta 2017, 7-seater, diesel, perfect family vehicle. Company service history maintained.',
-    features: ['ABS', 'Airbags', 'AC', 'Power Steering', 'Power Windows', 'Alloy Wheels', 'Reverse Camera'],
-    mainImage: 'https://images.unsplash.com/photo-1586767003402-c87c3b09cfae?w=800&q=80',
-    galleryImages: [
-      'https://images.unsplash.com/photo-1586767003402-c87c3b09cfae?w=800&q=80',
-      'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=800&q=80'
-    ],
-    status: 'active', createdAt: new Date(Date.now() - 4 * 86400000).toISOString()
-  },
-  {
-    id: 5, name: 'Volkswagen Polo', brand: 'Volkswagen', model: 'Polo', year: 2017,
-    fuel: 'Petrol', transmission: 'Manual', km: 30000, owner: '2nd Owner',
-    insurance: 'Expired', location: 'Calicut, Kerala', price: 525000,
-    description: 'Volkswagen Polo 2017 petrol, well maintained, sporty hatchback. Low km driven.',
-    features: ['ABS', 'AC', 'Airbags', 'Power Windows', 'Alloy Wheels'],
-    mainImage: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800&q=80',
-    galleryImages: [
-      'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800&q=80'
-    ],
-    status: 'active', createdAt: new Date(Date.now() - 5 * 86400000).toISOString()
-  },
-  {
-    id: 6, name: 'Mahindra XUV500', brand: 'Mahindra', model: 'XUV500', year: 2016,
-    fuel: 'Diesel', transmission: 'Manual', km: 90000, owner: '1st Owner',
-    insurance: 'Valid', location: 'Kochi, Kerala', price: 780000,
-    description: 'Mahindra XUV500 W10 2016, full option, 7-seater SUV. All features working.',
-    features: ['ABS', 'Airbags', 'AC', 'Power Steering', 'Power Windows', 'Alloy Wheels', 'Reverse Camera', 'Touch Screen', 'Cruise Control'],
-    mainImage: 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=800&q=80',
-    galleryImages: [
-      'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=800&q=80'
-    ],
-    status: 'active', createdAt: new Date(Date.now() - 6 * 86400000).toISOString()
-  },
-  {
-    id: 7, name: 'Ford EcoSport', brand: 'Ford', model: 'EcoSport', year: 2018,
-    fuel: 'Diesel', transmission: 'Manual', km: 50000, owner: '1st Owner',
-    insurance: 'Valid', location: 'Palakkad, Kerala', price: 630000,
-    description: 'Ford EcoSport Titanium 2018 diesel, excellent compact SUV, well maintained.',
-    features: ['ABS', 'Airbags', 'AC', 'Power Steering', 'Alloy Wheels', 'Reverse Camera'],
-    mainImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
-    galleryImages: [
-      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80'
-    ],
-    status: 'active', createdAt: new Date(Date.now() - 7 * 86400000).toISOString()
-  },
-  {
-    id: 8, name: 'Hyundai i20 Asta', brand: 'Hyundai', model: 'i20', year: 2018,
-    fuel: 'Petrol', transmission: 'Manual', km: 45000, owner: '1st Owner',
-    insurance: 'Valid', location: 'Manjeri, Kerala', price: 625000,
-    description: 'Hyundai i20 Asta 2018 petrol, top model, excellent condition. All features working perfectly.',
-    features: ['ABS', 'Airbags', 'AC', 'Power Windows', 'Alloy Wheels', 'Touch Screen'],
-    mainImage: 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800&q=80',
-    galleryImages: [
-      'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800&q=80'
-    ],
-    status: 'active', createdAt: new Date(Date.now() - 8 * 86400000).toISOString()
-  },
-  {
-    id: 9, name: 'Tata Nexon XZ+', brand: 'Tata', model: 'Nexon', year: 2020,
-    fuel: 'Petrol', transmission: 'Manual', km: 28000, owner: '1st Owner',
-    insurance: 'Valid', location: 'Tirur, Kerala', price: 950000,
-    description: 'Tata Nexon XZ+ 2020, low km, full option. Best safety rated compact SUV.',
-    features: ['ABS', 'Airbags', 'AC', 'Power Windows', 'Alloy Wheels', 'Touch Screen', 'Reverse Camera'],
-    mainImage: 'https://images.unsplash.com/photo-1563720223809-b2a83777d093?w=800&q=80',
-    galleryImages: [
-      'https://images.unsplash.com/photo-1563720223809-b2a83777d093?w=800&q=80'
-    ],
-    status: 'active', createdAt: new Date(Date.now() - 9 * 86400000).toISOString()
-  },
-  {
-    id: 10, name: 'Kia Seltos HTX', brand: 'Kia', model: 'Seltos', year: 2021,
-    fuel: 'Diesel', transmission: 'Automatic', km: 22000, owner: '1st Owner',
-    insurance: 'Valid', location: 'Kondotty, Kerala', price: 1450000,
-    description: 'Kia Seltos HTX 2021, low km, excellent condition. Premium SUV with all features.',
-    features: ['ABS', 'Airbags', 'AC', 'Power Steering', 'Power Windows', 'Alloy Wheels', 'Touch Screen', 'Reverse Camera', 'Cruise Control'],
-    mainImage: 'https://images.unsplash.com/photo-1617469767053-d3b523a0b982?w=800&q=80',
-    galleryImages: [
-      'https://images.unsplash.com/photo-1617469767053-d3b523a0b982?w=800&q=80'
-    ],
-    status: 'active', createdAt: new Date(Date.now() - 10 * 86400000).toISOString()
-  },
-  {
-    id: 11, name: 'Maruti Suzuki Baleno', brand: 'Maruti', model: 'Baleno', year: 2018,
-    fuel: 'Petrol', transmission: 'Manual', km: 55000, owner: '2nd Owner',
-    insurance: 'Valid', location: 'Kochi, Kerala', price: 610000,
-    description: 'Maruti Suzuki Baleno Zeta 2018, well maintained, good condition. Perfect city car.',
-    features: ['ABS', 'AC', 'Power Windows', 'Touch Screen', 'Alloy Wheels'],
-    mainImage: 'https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=800&q=80',
-    galleryImages: [
-      'https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=800&q=80'
-    ],
-    status: 'active', createdAt: new Date(Date.now() - 11 * 86400000).toISOString()
-  },
-  {
-    id: 12, name: 'Renault Kwid RXT', brand: 'Renault', model: 'Kwid', year: 2019,
-    fuel: 'Petrol', transmission: 'Manual', km: 38000, owner: '1st Owner',
-    insurance: 'Valid', location: 'Tirur, Kerala', price: 380000,
-    description: 'Renault Kwid RXT 2019, budget-friendly, good mileage. Excellent for first time buyers.',
-    features: ['AC', 'Power Windows', 'Touch Screen'],
-    mainImage: 'https://images.unsplash.com/photo-1462396240927-52058a6a84ec?w=800&q=80',
-    galleryImages: [
-      'https://images.unsplash.com/photo-1462396240927-52058a6a84ec?w=800&q=80'
-    ],
-    status: 'active', createdAt: new Date(Date.now() - 12 * 86400000).toISOString()
+async function loadAndRenderCars() {
+  const resp = await listCars();
+  if (resp.success) {
+    const cars = resp.cars; // array from DB
+    // call your existing render function with `cars`
+    // renderCars(cars);
+
+    return cars;
+  } else {
+    console.error('List error', resp);
   }
-];
+}
+
+
+const DEMO_CARS = await loadAndRenderCars()
 
 const DEMO_ENQUIRIES = [
   { id: 1, carId: 1, carName: 'Hyundai Verna', name: 'Aneesh Kumar', phone: '9526226011', message: 'More details please', createdAt: new Date(Date.now() - 1 * 86400000).toISOString() },
@@ -177,30 +41,30 @@ const DEMO_SELL_REQUESTS = [];
 /* ============================================
    LOCAL STORAGE HELPERS
    ============================================ */
-function getLS(key) {
-  try { return JSON.parse(localStorage.getItem(key)) || []; }
-  catch { return []; }
-}
-function setLS(key, val) {
-  localStorage.setItem(key, JSON.stringify(val));
-}
-function getObj(key) {
-  try { return JSON.parse(localStorage.getItem(key)) || {}; }
-  catch { return {}; }
-}
+// function getLS(key) {
+//   try { return JSON.parse(localStorage.getItem(key)) || []; }
+//   catch { return []; }
+// }
+// function setLS(key, val) {
+//   localStorage.setItem(key, JSON.stringify(val));
+// }
+// function getObj(key) {
+//   try { return JSON.parse(localStorage.getItem(key)) || {}; }
+//   catch { return {}; }
+// }
 
 /* ============================================
    INITIALIZE DATA ON FIRST LOAD
    ============================================ */
-function initData() {
-  if (!localStorage.getItem('autodelux_init')) {
-    setLS('cars', DEMO_CARS);
-    setLS('enquiries', DEMO_ENQUIRIES);
-    setLS('contacts', DEMO_CONTACTS);
-    setLS('sellRequests', DEMO_SELL_REQUESTS);
-    localStorage.setItem('autodelux_init', '1');
-  }
-}
+// function initData() {
+//   if (!localStorage.getItem('autodelux_init')) {
+//     setLS('cars', DEMO_CARS);
+//     setLS('enquiries', DEMO_ENQUIRIES);
+//     setLS('contacts', DEMO_CONTACTS);
+//     setLS('sellRequests', DEMO_SELL_REQUESTS);
+//     localStorage.setItem('autodelux_init', '1');
+//   }
+// }
 
 /* ============================================
    FORMATTING HELPERS

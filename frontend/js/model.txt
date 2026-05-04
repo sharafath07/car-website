@@ -1,0 +1,15 @@
+  {
+    id: 1, name: 'Hyundai Verna', brand: 'Hyundai', model: 'Verna', year: 2019,
+    fuel: 'Petrol', transmission: 'Manual', km: 40000, owner: '1st Owner',
+    insurance: 'Valid', location: 'Panjal, Kerala', price: 790000,
+    description: 'Hyundai Verna 2019 Petrol Manual in excellent condition. Well maintained, smooth drive, all documents clear. Contact Auto Delux for more details. Single owner vehicle with full service history.',
+    features: ['ABS', 'Airbags', 'AC', 'Power Steering', 'Power Windows', 'Alloy Wheels', 'Reverse Camera', 'Touch Screen'],
+    mainImage: 'https://images.unsplash.com/photo-1590362891991-f776e747a588?w=800&q=80',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1590362891991-f776e747a588?w=800&q=80',
+      'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&q=80',
+      'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&q=80',
+      'https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=800&q=80'
+    ],
+    status: 'active', createdAt: new Date(Date.now() - 1 * 86400000).toISOString()
+  }
