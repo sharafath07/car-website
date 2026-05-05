@@ -7,25 +7,18 @@ function Footer() {
                 <div className="container">
                     <div className="footer-grid">
                         <div className="footer-about" data-aos="fade-up" data-aos-delay="0">
-                            <a href="#" className="logo" style={{ display: 'inline-flex' }}>
-                                <div className="logo-icon">
-                                    <svg viewBox="0 0 36 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M2 18 L5 10 L10 8 L26 8 L31 10 L34 18 Z" fill="white" opacity="0.9" />
-                                        <circle cx="9" cy="19" r="3" fill="white" />
-                                        <circle cx="27" cy="19" r="3" fill="white" />
-                                    </svg>
+                            <div className="footer-logo">
+                                <div className="footer-logo-icon"><i className="fas fa-car"></i></div>
+                                <div className="footer-logo-text">
+                                    <h2>AUTO DELUX</h2><span>Premium Used Cars</span>
                                 </div>
-                                <div className="logo-text">
-                                    <span className="brand">AUTO <span>DELUX</span></span>
-                                    <span className="tagline">Premium Used Cars</span>
-                                </div>
-                            </a>
+                            </div>
                             <p>Auto Delux is a trusted used car dealer in Malappuram,Alathoorpadi Kerala. We deal in quality used cars
                                 with best price and transparent deals.</p>
                             <div className="footer-social">
-                                <a href="https://www.facebook.com" target="_blank" className="fb"><i className="fab fa-facebook-f"></i></a>
-                                <a href="https://www.instagram.com" target="_blank" className="ig"><i className="fab fa-instagram"></i></a>
-                                <a href="https://wa.me/919526226011" target="_blank" className="wa"><i className="fab fa-whatsapp"></i></a>
+                                <a href="#"><i className="fab fa-facebook-f"></i></a>
+                                <a href="https://instagram.com" target="_blank"><i className="fab fa-instagram"></i></a>
+                                <a href="https://wa.me/919526226011" target="_blank"><i className="fab fa-whatsapp"></i></a>
                             </div>
                         </div>
 
@@ -87,9 +80,6 @@ function Footer() {
                     </div>
                 </div>
             </footer>
-            <a href="https://wa.me/919526226011" className="wa-float" target="_blank" title="Chat on WhatsApp">
-                <i className="fab fa-whatsapp"></i>
-            </a>
         </div>
     )
 }

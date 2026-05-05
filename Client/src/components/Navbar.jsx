@@ -18,15 +18,15 @@ function Navbar() {
                     </Link>
                     <div className="hamburger"><span></span><span></span><span></span></div>
                     <div className="nav-links">
-                        <NavLink to="/" className="active">
+                        <NavLink to="/">
                             Home
                         </NavLink>
                         <NavLink to="/cars">
                             Cars
                         </NavLink>
-                        <NavLink to="/sell-car">
+                        {/* <NavLink to="/sell-car">
                             Sell Your Car
-                        </NavLink>
+                        </NavLink> */}
                         <NavLink to="/about">
                             About
                         </NavLink>

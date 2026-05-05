@@ -7,10 +7,11 @@ import Cars from './pages/Cars'
 // import SellCar from './pages/SellCar'
 import About from './pages/About'
 import Contact from './pages/Contact'
+import FloatButton from './components/FloatButton.jsx'
 
 function App() {
   return (
-    <div className='m-0 bg-black'>
+    <div className='m-0'>
       <TopBar />
       <Navbar />
       <Routes>
@@ -20,6 +21,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
+      <FloatButton />
     </div>
   )
 }

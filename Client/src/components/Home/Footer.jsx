@@ -62,10 +62,6 @@ function Footer() {
                 </div>
             </footer>
 
-            <a href="https://wa.me/919526226011" className="wa-float" target="_blank" title="Chat on WhatsApp">
-                <i className="fab fa-whatsapp"></i>
-            </a>
-
         </div>
     )
 }

@@ -1,6 +1,90 @@
-import React from 'react'
+import React, { useEffect, useState, useContext, use } from 'react'
+import { CarContext } from '../../Context/CarContext'
+import CarCard from '../CarCard';
 
 function Content() {
+    const { cars } = useContext(CarContext);
+    // const [car, setCar] = useState(null);
+    const [showFilters, setShowFilters] = useState(true);
+    const [filteredCars, setFilteredCars] = useState([]);
+    const [fuel, setFuel] = useState([])
+    const [transmission, setTransmission] = useState([])
+    const [year, setYear] = useState({ min: '', max: '' })
+    const [kmDriven, setKmDriven] = useState({ min: '', max: '' })
+    const [price, setPrice] = useState({ min: '', max: '' })
+    // const [category, setCategory] = useState([])
+    const [brand, setBrand] = useState("")
+    // const [subCategory, setSubCategory] = useState([])
+    const [sortType, setSortType] = useState("Latest")
+
+
+    function toggleFuel(e) {
+        if (fuel.includes(e.target.value)) {
+            setFuel(prev => prev.filter(item => item !== e.target.value))
+        } else {
+            setFuel(prev => [...prev, e.target.value])
+        }
+    }
+
+    function toggleTransmission(e) {
+        if (transmission.includes(e.target.value)) {
+            setTransmission(prev => prev.filter(item => item !== e.target.value))
+        } else {
+            setTransmission(prev => [...prev, e.target.value])
+        }
+    }
+
+    function applyFilter() {
+        let carsCopy = cars.slice();
+
+        if (fuel.length > 0) {
+            carsCopy = carsCopy.filter(car => fuel.includes(car.fuelType))
+        }
+
+        if (transmission.length > 0) {
+            carsCopy = carsCopy.filter(car => transmission.includes(car.transmission))
+        }
+        setFilteredCars(carsCopy)
+    }
+
+    function sortCar() {
+        let carsCopy = filteredCars.slice();
+
+        switch (sortType) {
+            case "latest":
+                carsCopy.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+                break;
+            case "price-asc":
+                carsCopy.sort((a, b) => a.price - b.price);
+                break;
+            case "price-desc":
+                carsCopy.sort((a, b) => b.price - a.price);
+                break;
+            case "km-asc":
+                carsCopy.sort((a, b) => a.kilometersDriven - b.kilometersDriven);
+                break;
+            case "km-desc":
+                carsCopy.sort((a, b) => b.kilometersDriven - a.kilometersDriven);
+                break;
+            case "year-desc":
+                carsCopy.sort((a, b) => b.year - a.year);
+                break;
+            case "year-asc":
+                carsCopy.sort((a, b) => a.year - b.year);
+                break;
+        }
+        setFilteredCars(carsCopy)
+    }
+
+
+    useEffect(() => {
+        applyFilter();
+    }, [fuel, transmission, year, kmDriven, price, brand])
+
+    useEffect(() => {
+        sortCar();
+    }, [sortType])
+
     return (
         <div>
             <section className="cars-page">
@@ -27,16 +111,16 @@ function Content() {
 
                             <div className="filter-group">
                                 <h4>Fuel Type</h4>
-                                <label className="filter-check"><input type="checkbox" className="fFuel" value="Petrol" /> Petrol</label>
-                                <label className="filter-check"><input type="checkbox" className="fFuel" value="Diesel" /> Diesel</label>
-                                <label className="filter-check"><input type="checkbox" className="fFuel" value="CNG" /> CNG</label>
-                                <label className="filter-check"><input type="checkbox" className="fFuel" value="Electric" /> Electric</label>
+                                <label className="filter-check"><input type="checkbox" className="fFuel" onClick={toggleFuel} value="Petrol" /> Petrol</label>
+                                <label className="filter-check"><input type="checkbox" className="fFuel" onClick={toggleFuel} value="Diesel" /> Diesel</label>
+                                <label className="filter-check"><input type="checkbox" className="fFuel" onClick={toggleFuel} value="CNG" /> CNG</label>
+                                <label className="filter-check"><input type="checkbox" className="fFuel" onClick={toggleFuel} value="Electric" /> Electric</label>
                             </div>
 
                             <div className="filter-group">
                                 <h4>Transmission</h4>
-                                <label className="filter-check"><input type="checkbox" className="fTrans" value="Manual" /> Manual</label>
-                                <label className="filter-check"><input type="checkbox" className="fTrans" value="Automatic" /> Automatic</label>
+                                <label className="filter-check"><input type="checkbox" className="fTrans" onClick={toggleTransmission} value="Manual" /> Manual</label>
+                                <label className="filter-check"><input type="checkbox" className="fTrans" onClick={toggleTransmission} value="Automatic" /> Automatic</label>
                             </div>
 
                             <div className="filter-group filter-range">
@@ -68,10 +152,10 @@ function Content() {
 
                         <main className="cars-main">
                             <div className="top-bar-filter">
-                                <div className="results-count">Showing <strong id="resultCount">0</strong> cars</div>
+                                <div className="results-count">Showing <strong id="resultCount">{filteredCars.length}</strong> cars</div>
                                 <div className="sort-bar">
                                     <label>Sort by:</label>
-                                    <select id="sortSelect">
+                                    <select id="sortSelect" onChange={(e) => setSortType(e.target.value)}>
                                         <option value="latest">Latest</option>
                                         <option value="price-asc">Price: Low to High</option>
                                         <option value="price-desc">Price: High to Low</option>
@@ -89,7 +173,13 @@ function Content() {
                                 <h3>No Cars Found</h3>
                                 <p>Try adjusting your filters</p>
                             </div>
-                            <div className="pagination" id="pagination"></div>
+                            <div className="pagination" id="pagination">
+                                {
+                                    filteredCars.map((car, index) => (
+                                        <CarCard key={car.id} image={car.images[0]} name={car.name} price={car.price} km={car.kilometersDriven} fuel={car.fuelType} id={car.id} year={car.year} transmission={car.transmission} />
+                                    ))
+                                }
+                            </div>
                         </main>
                     </div>
                 </div>

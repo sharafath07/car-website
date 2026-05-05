@@ -1,15 +1,15 @@
 import React, { useState, createContext, useEffect } from 'react'
 import cars from '../data/cars.js';
 
-const CarContext = createContext()
+export const CarContext = createContext()
 
 function CarContextProvider(props) {
     const currency = '₹';
 
 
-    useEffect(() => {
-        // Fetch cars from API or local storage
-    }, [])
+    // useEffect(() => {
+    //     // Fetch cars from API or local storage
+    // }, [])
 
     const value = {
         cars,

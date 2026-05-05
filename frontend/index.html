@@ -372,6 +372,8 @@
   <script type="module">
     AOS.init({ duration: 700, once: true });
 
+    console.log();
+
     // Load Featured Cars Swiper
     function loadFeaturedCars() {
       const cars = getLS('cars').filter(c => c.status === 'active').slice(0, 8);
