@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Hero() {
     return (
@@ -7,8 +8,8 @@ function Hero() {
                 <div className="container">
                     <h2 id="pageTitle">CAR DETAILS</h2>
                     <div className="breadcrumb">
-                        <a href="index.html">Home</a><span>›</span>
-                        <a href="cars.html">Cars</a><span>›</span>
+                        <Link to="/">Home</Link><span>›</span>
+                        <Link to="/cars">Cars</Link><span>›</span>
                         <span className="current" id="breadcrumbName">Details</span>
                     </div>
                 </div>

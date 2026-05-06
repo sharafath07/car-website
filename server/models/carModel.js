@@ -82,6 +82,8 @@ const carSchema = new mongoose.Schema(
             },
         ],
 
+        features: [String],
+
         date: {
             type: Number,
             required: true,

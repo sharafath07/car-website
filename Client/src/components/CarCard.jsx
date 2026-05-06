@@ -6,16 +6,16 @@ function CarCard({ id, name, image, fuel, year, transmission, km, price }) {
     const { currency } = useContext(CarContext)
 
     return (
-        <div className="car-card" id={id}>
+        <div className="car-card w-full" id={id}>
             <div className="car-card-img">
                 <img src={image} alt={name} loading="lazy" onError={(e) => {
                     e.target.src = "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=600&q=80";
                 }} />
                 <span className="car-card-badge">{fuel}</span>
                 <button className="car-card-fav"
-                    // onClick="toggleFav(${car.id}, this)" 
+                    // onClick="toggleFav(${car._id}, this)" 
                     title="Favourite">
-                    <i className="fa${isFav(car.id) ? 's' : 'r'} fa-heart"></i>
+                    <i className="fa${isFav(car._id) ? 's' : 'r'} fa-heart"></i>
                 </button>
             </div>
 

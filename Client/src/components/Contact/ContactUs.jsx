@@ -1,7 +1,36 @@
-import React from 'react'
+import React, { useState, useRef } from 'react'
+import emailjs from '@emailjs/browser'
 import '../../styles/Contact.css'
 
+
 function ContactUs() {
+    const [name, setName] = useState('');
+    const [phone, setPhone] = useState('');
+    const [email, setEmail] = useState('');
+    const [subject, setSubject] = useState('');
+    const [message, setMessage] = useState('');
+    const form = useRef();
+
+    function submitForm(e) {
+        e.preventDefault();
+        console.log(form.current);
+
+
+        emailjs.sendForm(import.meta.env.VITE_EMAILJS_SERVICE_ID, import.meta.env.VITE_EMAILJS_TEMPLATE_ID, form.current, { publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY })
+            .then((result) => {
+                console.log(result.text);
+                alert('Message sent successfully!');
+                setName('');
+                setPhone('');
+                setEmail('');
+                setSubject('');
+                setMessage('');
+            }, (error) => {
+                console.log(error.text);
+                alert('Failed to send message. Please try again.');
+            });
+    }
+
     return (
         <div>
             <section className="contact-section">
@@ -49,28 +78,28 @@ function ContactUs() {
 
                         <div className="contact-right">
                             <h3 className="form-title">Send Us A Message</h3>
-                            <div id="contactForm">
+                            <form ref={form} onSubmit={submitForm} id="contactForm">
                                 <div className="form-row">
                                     <div className="form-group">
-                                        <input type="text" id="fullName" placeholder="Full Name" />
+                                        <input type="text" id="fullName" placeholder="Full Name" value={name} name='name' onChange={(e) => setName(e.target.value)} />
                                     </div>
                                     <div className="form-group">
-                                        <input type="tel" id="phoneNumber" placeholder="Phone Number" />
+                                        <input type="tel" id="phoneNumber" placeholder="Phone Number" value={phone} name='phone' onChange={(e) => setPhone(e.target.value)} />
                                     </div>
                                 </div>
                                 <div className="form-group">
-                                    <input type="email" id="emailAddress" placeholder="Email Address" />
+                                    <input type="email" id="emailAddress" placeholder="Email Address" value={email} name='email' onChange={(e) => setEmail(e.target.value)} />
                                 </div>
                                 <div className="form-group">
-                                    <input type="text" id="subject" placeholder="Subject" />
+                                    <input type="text" id="subject" placeholder="Subject" value={subject} name='subject' onChange={(e) => setSubject(e.target.value)} />
                                 </div>
                                 <div className="form-group">
-                                    <textarea id="message" placeholder="Your Message"></textarea>
+                                    <textarea id="message" placeholder="Your Message" value={message} name='message' onChange={(e) => setMessage(e.target.value)}></textarea>
                                 </div>
-                                <button className="btn-submit" onclick="submitForm()">
+                                <button className="btn-submit" type="submit">
                                     <i className="fa-solid fa-paper-plane"></i> Send Message
                                 </button>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>

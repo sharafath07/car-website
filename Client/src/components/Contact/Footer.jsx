@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Footer() {
     return (
@@ -25,11 +26,11 @@ function Footer() {
                         <div data-aos="fade-up" data-aos-delay="100">
                             <h4>Quick Links</h4>
                             <ul className="footer-links">
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Cars</a></li>
-                                <li><a href="#">Sell Your Car</a></li>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Contact Us</a></li>
+                                <li><Link to="/">Home</Link></li>
+                                <li><Link to="/cars">Cars</Link></li>
+                                {/* <li><Link to="/sell-your-car">Sell Your Car</Link></li> */}
+                                <li><Link to="/about">About Us</Link></li>
+                                <li><Link to="/contact">Contact Us</Link></li>
                             </ul>
                         </div>
 
@@ -69,7 +70,7 @@ function Footer() {
                             <p className="footer-desc">Subscribe to get latest updates and offers</p>
                             <div className="newsletter-input-wrap">
                                 <input type="email" id="newsletterEmail" placeholder="Your Email Address" />
-                                <button className="btn-subscribe" onclick="subscribeNewsletter()">Subscribe</button>
+                                <button className="btn-subscribe">Subscribe</button>
                             </div>
                         </div>
                     </div>

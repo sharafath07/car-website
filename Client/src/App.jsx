@@ -8,8 +8,15 @@ import Cars from './pages/Cars'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import FloatButton from './components/FloatButton.jsx'
+import CarDetail from './pages/CarDetail.jsx'
+import Admin from './pages/Admin.jsx'
+import Login from './pages/Login.jsx'
+import DashBoard from './pages/DashBoard.jsx'
+import ProtectedRoute from './components/ProtectedRoute.jsx'
+import AddCar from './pages/AddCar.jsx'
 
 function App() {
+
   return (
     <div className='m-0'>
       <TopBar />
@@ -20,6 +27,12 @@ function App() {
         {/* <Route path="/sell-car" element={<SellCar />} /> */}
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/cars/:id" element={<CarDetail />} />
+        <Route path="/admin" element={<ProtectedRoute><Admin /></ProtectedRoute>} />
+
+        <Route path="/admin/login" element={<Login />} />
+        <Route path="/admin/dashboard" element={<ProtectedRoute><DashBoard /></ProtectedRoute>} />
+        <Route path="/admin/addcar" element={<ProtectedRoute><AddCar /></ProtectedRoute>} />
       </Routes>
       <FloatButton />
     </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 import Hero from '../components/Home/Hero.jsx'
-import Search from '../components/Home/Search.jsx'
+// import Search from '../components/Home/Search.jsx'
 import FeaturesBar from '../components/Home/FeaturesBar.jsx'
 import FeaturedCars from '../components/Home/FeaturedCars.jsx'
 import LatestCars from '../components/Home/LatestCars.jsx'
@@ -15,7 +15,7 @@ function Home() {
     return (
         <div>
             <Hero />
-            <Search />
+            {/* <Search /> */}
             <FeaturesBar />
             <FeaturedCars />
             <LatestCars />

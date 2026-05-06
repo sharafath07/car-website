@@ -1,6 +1,35 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
+import { CarContext } from '../../Context/CarContext'
+
 
 function Content() {
+    const { carId } = useParams();
+    const { cars, currency } = useContext(CarContext);
+    const [productData, setProductData] = useState(false)
+    const [image, setImage] = useState(null)
+    const [features, setFeatures] = useState('')
+
+
+    async function fetchCarData() {
+        cars.map((item) => {
+            if (item._id === carId) {
+                setProductData(item)
+                setImage(item.image[0])
+                return null
+            }
+        })
+    }
+
+    function submitEnquiry() {
+        const name = document.getElementById("enqName").value.trim();
+    }
+
+    useEffect(() => {
+        fetchCarData()
+    }, [carId])
+
+
     return (
         <div>
             <section className="car-details-page">
@@ -9,19 +38,25 @@ function Content() {
                         <i className="fas fa-car-crash" style={{ fontSize: "50px", color: "#ccc", marginBottom: "20px", display: "block" }}></i>
                         <h3>Car Not Found</h3>
                         <p style={{ color: "#999", margin: "10px 0 20px" }}>This car may have been sold or removed.</p>
-                        <a href="cars.html" className="btn btn-primary">Browse All Cars</a>
+                        <Link to="/cars" className="btn btn-primary">Browse All Cars</Link>
                     </div>
 
                     <div className="car-details-layout" id="carDetailsContent">
                         <div>
                             <div className="gallery-main" data-aos="fade-right">
-                                <img id="mainImage" src="" alt="Car Image" />
+                                <img id="mainImage" src={image} alt="Car Image" />
                             </div>
                             <div className="gallery-thumbs" id="galleryThumbs" data-aos="fade-right" data-aos-delay="100"></div>
 
                             <div className="features-list" data-aos="fade-up" style={{ background: "white", borderRadius: "10px", boxShadow: "0 4px 20px rgba(0,0,0,.08)", padding: "25px", marginTop: "25px" }}>
                                 <h3>FEATURES</h3>
-                                <div className="features-grid" id="featuresList"></div>
+                                <div className="features-grid" id="featuresList">{
+                                    productData && productData.features ? productData.features.map((feature, index) => (
+                                        <div key={index} className="feature-item">
+                                            <i className="fas fa-check-circle"></i> {feature}
+                                        </div>
+                                    )) : null
+                                }</div>
                             </div>
 
                             <div className="description-section" data-aos="fade-up" style={{ marginTop: "25px" }}>
@@ -53,7 +88,7 @@ function Content() {
                                     <input type="text" className="form-control" id="enqName" placeholder="Your Name *" />
                                     <input type="tel" className="form-control" id="enqPhone" placeholder="Your Phone *" />
                                     <textarea className="form-control" id="enqMessage" placeholder="Your Message..."></textarea>
-                                    <button className="btn btn-primary" style={{ width: "100%", justifyContent: "center" }} onclick="submitEnquiry()">
+                                    <button className="btn btn-primary" style={{ width: "100%", justifyContent: "center" }} onClick={submitEnquiry}>
                                         <i className="fas fa-paper-plane"></i> SEND ENQUIRY
                                     </button>
                                 </div>
