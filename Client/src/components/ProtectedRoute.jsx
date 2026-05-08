@@ -1,19 +1,34 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useContext } from "react";
+
 import {
     Navigate
 } from "react-router-dom";
-import { CarContext } from "../Context/CarContext";
+
+import {
+    CarContext
+} from "../Context/CarContext";
 
 function ProtectedRoute({ children }) {
 
-    const { token } = useContext(CarContext);
+    const { token } =
+        useContext(CarContext);
 
-    useEffect(() => {
-        if (!token) {
-            return <Navigate to="/admin/login" replace />;
-        }
-    }, [token]);
 
+
+    // NO TOKEN
+    if (token === '') {
+
+        return (
+            <Navigate
+                to="/admin/login"
+                replace
+            />
+        );
+    }
+
+
+
+    // ALLOW ACCESS
     return children;
 }
 

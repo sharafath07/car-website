@@ -8,7 +8,7 @@ function Login() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [showPassword, setShowPassword] = useState(false)
-    const { backendUrl, setToken } = useContext(CarContext)
+    const { backendUrl, setToken, token } = useContext(CarContext)
     const navigate = useNavigate()
 
 
@@ -34,11 +34,6 @@ function Login() {
                     response.data.token
                 )
 
-                // Clear form
-                setEmail('')
-                setPassword('')
-
-                // Navigate
                 navigate('/admin/dashboard')
             }
         } catch (error) {
@@ -79,7 +74,7 @@ function Login() {
                     <button type="submit" className="bg-blue-500 text-white w-80 px-4 py-2 rounded hover:bg-blue-600 transition-colors cursor-pointer">
                         Login
                     </button>
-                    <p className="text-gray-600 mt-3 text-xs">
+                    <p className="text-gray-600 mt-3 text-center text-xs">
                         © 2026 Auto Delux.
                         All rights reserved.
                     </p>

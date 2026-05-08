@@ -1,6 +1,6 @@
 import React, { useState, createContext, useEffect, use } from 'react'
 import axios from 'axios'
-import cars from '../data/cars.js';
+// import cars from '../data/cars.js';
 
 export const CarContext = createContext()
 
@@ -8,12 +8,7 @@ function CarContextProvider(props) {
     const currency = '₹';
     const backendUrl = import.meta.env.VITE_BACKEND_URL;
     const [token, setToken] = useState('');
-    // const [cars, setCars] = useState([])
-
-
-    // useEffect(() => {
-    //     // Fetch cars from API or local storage
-    // }, [])
+    const [cars, setCars] = useState([])
 
     async function getCarsData() {
         try {
@@ -30,12 +25,13 @@ function CarContextProvider(props) {
         }
     }
 
-    // useEffect(() => {
-    //     getCarsData();
-    // }, [])
+    useEffect(() => {
+        getCarsData();
+    }, [])
 
     const value = {
         cars,
+        setCars,
         currency,
         backendUrl,
         token,

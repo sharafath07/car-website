@@ -1,7 +1,7 @@
 import React from 'react'
 import TopBar from './components/TopBar.jsx'
 import Navbar from './components/Navbar.jsx'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Home from './pages/Home'
 import Cars from './pages/Cars'
 // import SellCar from './pages/SellCar'
@@ -14,13 +14,30 @@ import Login from './pages/Login.jsx'
 import DashBoard from './pages/DashBoard.jsx'
 import ProtectedRoute from './components/ProtectedRoute.jsx'
 import AddCar from './pages/AddCar.jsx'
+import NavbarAdmin from './components/Admin/NavbarAdmin.jsx'
 
 function App() {
+
+
+  const location = useLocation();
+
+  // Pages without navbar
+  const hideNavbarRoutes = [
+    "/admin/login",
+    "/admin/dashboard",
+    "/admin/addcar"
+  ];
+
+
 
   return (
     <div className='m-0'>
       <TopBar />
-      <Navbar />
+      {
+        !hideNavbarRoutes.includes(
+          location.pathname
+        ) ? <Navbar /> : <NavbarAdmin />
+      }
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cars" element={<Cars />} />
