@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Footer() {
     return (
@@ -24,11 +25,11 @@ function Footer() {
                         <div className="footer-col">
                             <h4>QUICK LINKS</h4>
                             <ul>
-                                <li><a href="index.html"><i className="fas fa-chevron-right"></i> Home</a></li>
-                                <li><a href="cars.html"><i className="fas fa-chevron-right"></i> Cars</a></li>
-                                <li><a href="sell-car.html"><i className="fas fa-chevron-right"></i> Sell Your Car</a></li>
-                                <li><a href="about.html"><i className="fas fa-chevron-right"></i> About Us</a></li>
-                                <li><a href="contact.html"><i className="fas fa-chevron-right"></i> Contact Us</a></li>
+                                <li><Link to="/"><i className="fas fa-chevron-right"></i> Home</Link></li>
+                                <li><Link to="/cars"><i className="fas fa-chevron-right"></i> Cars</Link></li>
+                                {/* <li><Link to="/sell-car"><i className="fas fa-chevron-right"></i> Sell Your Car</Link></li> */}
+                                <li><Link to="/about"><i className="fas fa-chevron-right"></i> About Us</Link></li>
+                                <li><Link to="/contact"><i className="fas fa-chevron-right"></i> Contact Us</Link></li>
                             </ul>
                         </div>
                         <div className="footer-col">

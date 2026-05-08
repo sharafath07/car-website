@@ -1,5 +1,6 @@
 import React from 'react'
 import '../../styles/Contact.css'
+import { Link } from 'react-router-dom'
 
 
 function Hero() {
@@ -15,7 +16,7 @@ function Hero() {
                         <h1 className="hero-title">Contact Auto Delux</h1>
                         <p className="hero-sub">We are here to help you find your perfect car</p>
                         <div className="breadcrumb">
-                            <a href="#"><i className="fa-solid fa-house" style={{ fontSize: '11px' }}></i> Home</a>
+                            <Link to="/"><i className="fa-solid fa-house" style={{ fontSize: '11px' }}></i> Home</Link>
                             <span className="sep">›</span>
                             <span className="current">Contact</span>
                         </div>

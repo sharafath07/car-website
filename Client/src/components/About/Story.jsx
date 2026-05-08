@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Story() {
     return (
@@ -17,7 +18,7 @@ function Story() {
                             team of experts ensures every car is thoroughly inspected and certified before listing.</p>
                         <p>At Auto Delux, we believe in complete transparency. No hidden charges, no surprises. Just honest deals and
                             quality vehicles.</p>
-                        <a href="contact.html" className="btn btn-primary">Contact Us <i className="fas fa-arrow-right"></i></a>
+                        <Link to="/contact" className="btn btn-primary">Contact Us <i className="fas fa-arrow-right"></i></Link>
                     </div>
                 </div>
             </section>
