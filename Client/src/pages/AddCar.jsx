@@ -5,7 +5,8 @@ import { CarContext } from "../Context/CarContext.jsx";
 
 function AddCar() {
 
-    const { backendUrl } = useContext(CarContext);
+    const navigate = useNavigate();
+    const { token, backendUrl, setCar } = useContext(CarContext);
 
     const featureOptions = [
         'ABS',
@@ -44,8 +45,6 @@ function AddCar() {
         insurance: '',
         price: '',
         seats: '',
-        category: '',
-        subCategory: '',
         description: '',
         features: [],
         images: []
@@ -104,23 +103,54 @@ function AddCar() {
     }
 
     async function handleSubmit(e) {
-
         e.preventDefault();
-
         try {
-            const response = await axios.post(`${backendUrl}/api/car/add`, carData);
-            if (response.data.success) {
-                alert('Car added successfully');
+            const formData = new FormData();
+            // TEXT DATA
+            formData.append("name", carData.name);
+            formData.append("description", carData.description);
+            formData.append("price", carData.price);
+            formData.append("year", carData.year);
+            formData.append("seats", carData.seats);
+            formData.append("transmission", carData.transmission);
+            formData.append("fuelType", carData.fuelType);
+            formData.append("kilometersDriven", carData.kilometersDriven);
+            formData.append("model", carData.model);
+            formData.append("company", carData.company);
+            // IMAGES
+            carData.images.forEach((image, index) => {
+                formData.append(
+                    `image${index + 1}`,
+                    image
+                );
+            });
+            const response = await axios.post(
+                `${backendUrl}/api/car/add`,
+                formData,
+                {
+                    headers: {
+                        token
+                    }
+                }
+            );
+            console.log(response.data);
 
-                useNavigate('admin/dashboard');
+            if (response.data.success) {
+                alert("Car added successfully");
+                navigate("/admin/dashboard");
             } else {
-                alert('Failed to add car: ' + response.data.message);
+                alert(response.data.message);
             }
         } catch (error) {
-            console.error("Error adding car:", error);
+            console.log(error);
+            console.log(error.response);
+            console.log(error.response?.data);
+            alert(
+                error.response?.data?.message ||
+                error.message
+            );
         }
     }
-
     return (
 
         <div className="min-h-screen bg-[#f5f7fb] py-10 px-4">
@@ -180,12 +210,6 @@ function AddCar() {
                     <input type="number" name="price" value={carData.price} onChange={handleChange} placeholder="Price" className="w-full border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-blue-500" />
 
                     <input type="number" name="seats" value={carData.seats} onChange={handleChange} placeholder="Seats" className="w-full border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-blue-500" />
-
-                    <input type="text" name="category" value={carData.category} onChange={handleChange} placeholder="Category" className="w-full border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-blue-500" />
-
-                    <input type="text" name="subCategory" value={carData.subCategory} onChange={handleChange} placeholder="Sub Category" className="w-full border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-blue-500" />
-
-
 
                     {/* DESCRIPTION */}
                     <div className="md:col-span-2">

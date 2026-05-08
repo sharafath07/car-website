@@ -3,7 +3,7 @@ import carModel from "../models/carModel.js";
 
 async function addCar(req, res) {
     try {
-        const { name, description, price, year, seats, transmission, fuelType, kilometersDriven, model, company, category, subCategory } = req.body;
+        const { name, description, price, year, seats, transmission, fuelType, kilometersDriven, model, company } = req.body;
 
         const image1 = req.files.image1 && req.files.image1[0]
         const image2 = req.files.image2 && req.files.image2[0]
@@ -36,8 +36,6 @@ async function addCar(req, res) {
             kilometersDriven: Number(kilometersDriven),
             model,
             company,
-            category,
-            subCategory,
             images: imageUrl,
             date: Number(Date.now())
         };
