@@ -1,10 +1,40 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import img1 from '../../assets/image1.jpeg';
+import img2 from '../../assets/image2.jpeg';
+import img3 from '../../assets/image3.jpeg';
+
 
 function Hero() {
+    const images = [img1, img2, img3];
+    const [current, setCurrent] = useState(0);
+
+    // NEXT SLIDE
+    function next() {
+        setCurrent((prev) =>
+            (prev + 1) % images.length
+        );
+    }
+
+    // PREVIOUS SLIDE
+    function prev() {
+        setCurrent((prev) =>
+            (prev - 1 + images.length) %
+            images.length
+        );
+    }
+    // AUTO SLIDE
+    useEffect(() => {
+        const interval =
+            setInterval(next, 5000);
+        return () =>
+            clearInterval(interval);
+    }, []);
+
+
     return (
         <div>
-            <section className="hero" style={{ background: 'linear-gradient(135deg,#0f2540,#1a3a5c)' }}>
+            <section className="hero" style={{ backgroundImage: `url(${images[current]})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                 <div className="container">
                     <div className="hero-content" data-aos="fade-right">
                         <span className="badge"><i className="fas fa-star"></i> Kerala's Trusted Used Car Dealer</span>
@@ -16,8 +46,8 @@ function Hero() {
                         </div>
                     </div>
                 </div>
-                <button className="hero-nav-btn hero-prev"><i className="fas fa-chevron-left"></i></button>
-                <button className="hero-nav-btn hero-next"><i className="fas fa-chevron-right"></i></button>
+                <button onClick={prev} className="hero-nav-btn hero-prev"><i className="fas fa-chevron-left"></i></button>
+                <button onClick={next} className="hero-nav-btn hero-next"><i className="fas fa-chevron-right"></i></button>
             </section>
         </div>
     )

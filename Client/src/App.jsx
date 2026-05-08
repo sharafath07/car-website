@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import AOS from "aos";
+import "aos/dist/aos.css";
 import TopBar from './components/TopBar.jsx'
 import Navbar from './components/Navbar.jsx'
 import { Routes, Route, useLocation } from 'react-router-dom'
@@ -29,6 +31,14 @@ function App() {
   ];
 
 
+  useEffect(() => {
+
+    AOS.init({
+      duration: 700,
+      once: true
+    });
+
+  }, []);
 
   return (
     <div className='m-0'>
