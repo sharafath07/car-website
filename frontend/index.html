@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto Delux - Premium Used Cars | Malappuram,Alathoorpadi, Kerala</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css">
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-left">
+        <span><i class="fas fa-map-marker-alt"></i> Malappuram,Alathoorpadi Kerala</span>
+        <a href="tel:9526226011"><i class="fas fa-phone"></i> 9526226011</a>
+      </div>
+      <div class="top-bar-right">
+        <a href="https://www.facebook.com/profile.php?id=100088395416692" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/auto_deluxe_usedcars?igsh=YW5ybHA4OWx1eHh4" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/919526226011" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="images/Logo.jpeg" alt="Auto Delux Logo">
+        <div class="logo-text">
+          <h1>AUTO DELUX</h1>
+          <span>Premium Used Cars</span>
+        </div>
+      </a>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="cars.html">Cars</a>
+        <a href="sell-car.html">Sell Your Car</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://wa.me/919526226011" class="btn-whatsapp-nav"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero" style="background: linear-gradient(135deg,#0f2540,#1a3a5c);">
+    <div class="container">
+      <div class="hero-content" data-aos="fade-right">
+        <span class="badge"><i class="fas fa-star"></i> Kerala's Trusted Used Car Dealer</span>
+        <h2>FIND YOUR<br>PERFECT CAR</h2>
+        <p>Best Quality Used Cars at Affordable Prices</p>
+        <div class="hero-btns">
+          <a href="cars.html" class="btn btn-browse"><i class="fas fa-search"></i> BROWSE CARS</a>
+          <a href="tel:9526226011" class="btn btn-outline-white"><i class="fas fa-phone"></i> Call Now</a>
+        </div>
+      </div>
+    </div>
+    <button class="hero-nav-btn hero-prev"><i class="fas fa-chevron-left"></i></button>
+    <button class="hero-nav-btn hero-next"><i class="fas fa-chevron-right"></i></button>
+  </section>
+
+  <!-- SEARCH SECTION -->
+  <section class="search-section">
+    <div class="container">
+      <div class="search-form">
+        <div class="form-group">
+          <label><i class="fas fa-search"></i> Search Car</label>
+          <input type="text" id="searchQ" placeholder="Car name / model...">
+        </div>
+        <div class="form-group">
+          <label>Brand</label>
+          <select id="searchBrand" class="brand-select">
+            <option value="">Select Brand</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Min Price</label>
+          <select id="searchMinPrice">
+            <option value="">Min Price</option>
+            <option value="100000">₹1 Lakh</option>
+            <option value="200000">₹2 Lakh</option>
+            <option value="300000">₹3 Lakh</option>
+            <option value="500000">₹5 Lakh</option>
+            <option value="800000">₹8 Lakh</option>
+            <option value="1000000">₹10 Lakh</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Max Price</label>
+          <select id="searchMaxPrice">
+            <option value="">Max Price</option>
+            <option value="300000">₹3 Lakh</option>
+            <option value="500000">₹5 Lakh</option>
+            <option value="800000">₹8 Lakh</option>
+            <option value="1000000">₹10 Lakh</option>
+            <option value="1500000">₹15 Lakh</option>
+            <option value="2000000">₹20 Lakh</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Fuel Type</label>
+          <select id="searchFuel">
+            <option value="">All Fuel Types</option>
+            <option value="Petrol">Petrol</option>
+            <option value="Diesel">Diesel</option>
+            <option value="CNG">CNG</option>
+            <option value="Electric">Electric</option>
+          </select>
+        </div>
+        <button class="btn-search" id="searchBtn"><i class="fas fa-search"></i> SEARCH</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES BAR -->
+  <section class="features-bar">
+    <div class="container">
+      <div class="feature-item" data-aos="fade-up" data-aos-delay="0">
+        <div class="feature-icon"><i class="fas fa-award"></i></div>
+        <div class="feature-text">
+          <h4>BEST QUALITY</h4>
+          <p>We provide best quality cars</p>
+        </div>
+      </div>
+      <div class="feature-item" data-aos="fade-up" data-aos-delay="100">
+        <div class="feature-icon"><i class="fas fa-tags"></i></div>
+        <div class="feature-text">
+          <h4>LOWEST PRICE</h4>
+          <p>Get the best price in the market</p>
+        </div>
+      </div>
+      <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
+        <div class="feature-icon"><i class="fas fa-hand-holding-usd"></i></div>
+        <div class="feature-text">
+          <h4>EASY FINANCE</h4>
+          <p>Easy loan facility available</p>
+        </div>
+      </div>
+      <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
+        <div class="feature-icon"><i class="fas fa-headset"></i></div>
+        <div class="feature-text">
+          <h4>AFTER SALES SERVICE</h4>
+          <p>We are with you even after purchase</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED CARS - SWIPER -->
+  <section class="featured-section">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>— FEATURED CARS —</h2>
+        <p>Hand-picked best deals for you</p>
+      </div>
+      <div class="swiper featured-swiper" data-aos="fade-up">
+        <div class="swiper-wrapper" id="featuredCarsSlider"></div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LATEST CARS GRID -->
+  <section class="latest-section">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>LATEST CARS</h2>
+        <p>Newly added cars in our stock</p>
+      </div>
+      <div class="cars-grid" id="latestCarsGrid"></div>
+      <div style="text-align:center;margin-top:40px;" data-aos="fade-up">
+        <a href="cars.html" class="btn btn-primary" style="padding:14px 40px;font-size:15px;">View All Cars <i
+            class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="why-section">
+    <div class="container">
+      <div class="why-content">
+        <div class="why-text" data-aos="fade-right">
+          <h2>WHY CHOOSE AUTO DELUX?</h2>
+          <p>At Auto Delux, we believe in trust, transparency and customer satisfaction. We provide the best quality
+            used cars with best price and a seamless car-buying experience in Kerala.</p>
+          <ul class="why-list">
+            <li><i class="fas fa-check-circle"></i> 100% Certified Cars</li>
+            <li><i class="fas fa-check-circle"></i> Transparent Deal</li>
+            <li><i class="fas fa-check-circle"></i> No Hidden Charges</li>
+            <li><i class="fas fa-check-circle"></i> Quick & Easy Process</li>
+            <li><i class="fas fa-check-circle"></i> Trusted by Thousands</li>
+            <li><i class="fas fa-check-circle"></i> Easy Finance Options</li>
+          </ul>
+          <a href="about.html" class="btn btn-primary">READ MORE <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="why-image" data-aos="fade-left">
+          <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=700&q=80" alt="Why Auto Delux">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-bar">
+    <div class="container">
+      <div class="stat-item" data-aos="zoom-in" data-aos-delay="0">
+        <h3 class="counter" data-target="250">0</h3>
+        <p>Happy Customers</p>
+      </div>
+      <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
+        <h3 class="counter" data-target="150">0</h3>
+        <p>Cars Available</p>
+      </div>
+      <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
+        <h3 class="counter" data-target="10">0</h3>
+        <p>Years Experience</p>
+      </div>
+      <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
+        <h3 class="counter" data-target="500">0</h3>
+        <p>Cars Sold</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews-section">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>CUSTOMER REVIEWS</h2>
+        <p>What our happy customers say</p>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+              class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="review-text">"Collection of stars and recycled custom cars and best price, highly recommended by my
+            purchase."</p>
+          <div class="review-author">
+            <div class="review-avatar">A</div>
+            <div class="review-info">
+              <h5>Aneesh Kumar</h5>
+              <p>Hyundai Verna Owner</p>
+            </div>
+          </div>
+        </div>
+        <div class="review-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+              class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="review-text">"Very transparent deal and best price. Customer service and documentation was
+            excellent. Highly recommended."</p>
+          <div class="review-author">
+            <div class="review-avatar">S</div>
+            <div class="review-info">
+              <h5>Sreelakshmi</h5>
+              <p>Maruti Swift Owner</p>
+            </div>
+          </div>
+        </div>
+        <div class="review-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+              class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+          <p class="review-text">"One of the best used car showroom in Malappuram,Alathoorpadi. Good experience buying
+            my Honda City. Trustworthy dealer."</p>
+          <div class="review-author">
+            <div class="review-avatar">J</div>
+            <div class="review-info">
+              <h5>Jayesh</h5>
+              <p>Honda City Owner</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section class="partners-section">
+    <div class="container">
+      <h3>OUR PARTNERS</h3>
+      <div class="partners-row">
+        <div class="partner-logo">HDFC BANK</div>
+        <div class="partner-logo">ICICI BANK</div>
+        <div class="partner-logo">AXIS BANK</div>
+        <div class="partner-logo">BAJAJ FINSERV</div>
+        <div class="partner-logo">SBI BANK</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <div class="footer-logo">
+            <div class="footer-logo-icon"><i class="fas fa-car"></i></div>
+            <div class="footer-logo-text">
+              <h2>AUTO DELUX</h2><span>Premium Used Cars</span>
+            </div>
+          </div>
+          <p>Auto Delux is a trusted used car dealer in Malappuram,Alathoorpadi Kerala. We deal in quality used cars
+            with best price and transparent deals.</p>
+          <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/919526226011" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>QUICK LINKS</h4>
+          <ul>
+            <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+            <li><a href="cars.html"><i class="fas fa-chevron-right"></i> Cars</a></li>
+            <li><a href="sell-car.html"><i class="fas fa-chevron-right"></i> Sell Your Car</a></li>
+            <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+            <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>OUR SERVICES</h4>
+          <ul>
+            <li><a href="cars.html"><i class="fas fa-chevron-right"></i> Used Car Sales</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Car Finance</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Car Exchange</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Insurance</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> RC Transfer</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>CONTACT INFO</h4>
+          <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>Malappuram,Alathoorpadi, Kerala,
+              India</span></div>
+          <div class="footer-contact-item"><i class="fas fa-phone"></i><span>9526226011</span></div>
+          <div class="footer-contact-item"><i class="fas fa-envelope"></i><span>autodeluxcars@gmail.com</span></div>
+          <div class="footer-contact-item"><i class="fas fa-clock"></i><span>Mon–Sat: 9:00 AM – 7:00 PM</span></div>
+          <h4 style="margin-top:20px;margin-bottom:10px;">NEWSLETTER</h4>
+          <p style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:10px;">Subscribe to get latest updates</p>
+          <div class="newsletter-form">
+            <input type="email" placeholder="Your Email">
+            <button>Subscribe</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">© 2024 Auto Delux. All Rights Reserved.</div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/919526226011" class="wa-float" target="_blank" title="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
+  <script type="module" src="js/main.js"></script>
+  <script type="module">
+    AOS.init({ duration: 700, once: true });
+
+    console.log();
+
+    // Load Featured Cars Swiper
+    function loadFeaturedCars() {
+      const cars = getLS('cars').filter(c => c.status === 'active').slice(0, 8);
+      const wrapper = document.getElementById('featuredCarsSlider');
+      if (!wrapper) return;
+      wrapper.innerHTML = cars.map(car => `<div class="swiper-slide">${carCardHTML(car)}</div>`).join('');
+      new Swiper('.featured-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: cars.length > 3,
+        pagination: { el: '.swiper-pagination', clickable: true },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        breakpoints: { 600: { slidesPerView: 2 }, 900: { slidesPerView: 3 }, 1200: { slidesPerView: 4 } },
+        autoplay: { delay: 3500, disableOnInteraction: false }
+      });
+    }
+
+    // Load Latest Cars Grid
+    function loadLatestCars() {
+      const cars = getLS('cars').filter(c => c.status === 'active').slice(0, 8);
+      const grid = document.getElementById('latestCarsGrid');
+      if (!grid) return;
+      grid.innerHTML = cars.map(car => carCardHTML(car)).join('');
+    }
+
+    // Counter animation
+    function animateCounters() {
+      document.querySelectorAll('.counter').forEach(el => {
+        const target = parseInt(el.dataset.target);
+        let count = 0;
+        const step = Math.ceil(target / 60);
+        const interval = setInterval(() => {
+          count += step;
+          if (count >= target) { count = target; clearInterval(interval); }
+          el.textContent = count + '+';
+        }, 30);
+      });
+    }
+
+    // Intersection observer for counters
+    const statsObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { animateCounters(); statsObs.disconnect(); } });
+    }, { threshold: 0.3 });
+    const statsBar = document.querySelector('.stats-bar');
+    if (statsBar) statsObs.observe(statsBar);
+
+    loadFeaturedCars();
+    loadLatestCars();
+  </script>
+</body>
+
+</html>

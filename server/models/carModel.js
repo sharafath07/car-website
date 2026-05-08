@@ -75,12 +75,23 @@ const carSchema = new mongoose.Schema(
 
         description: String,
 
+        owner: {
+            type: String
+        },
+
+        insurance: {
+            type: String,
+            enum: ["Valid", "Expired"],
+        },
+
         // 🖼️ Multiple Images
         images: [
             {
                 type: String,
             },
         ],
+
+        features: [String],
 
         date: {
             type: Number,
