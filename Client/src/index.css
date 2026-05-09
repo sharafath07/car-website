@@ -1480,6 +1480,8 @@ img {
 
 .specs-table tr {
   border-bottom: 1px solid var(--gray-light);
+  display: flex;
+  gap: 20px;
 }
 
 .specs-table td {

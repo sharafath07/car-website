@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { CarContext } from '../../Context/CarContext';
 
 function StatsBar() {
+    const { cars } = useContext(CarContext);
+
     return (
         <div>
             <section className="stats-bar">
@@ -10,8 +13,8 @@ function StatsBar() {
                         <p>Happy Customers</p>
                     </div>
                     <div className="stat-item" data-aos="zoom-in" data-aos-delay="100">
-                        <h3>150+</h3>
-                        <p>Cars Available</p>
+                        <h3>{cars.length}</h3>
+                        <p>Cars Available Now</p>
                     </div>
                     <div className="stat-item" data-aos="zoom-in" data-aos-delay="200">
                         <h3>10+</h3>

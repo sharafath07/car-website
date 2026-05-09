@@ -47,9 +47,7 @@ const carSchema = new mongoose.Schema(
 
         description: String,
 
-        owner: {
-            type: String
-        },
+        owner: String,
 
         insurance: {
             type: String,

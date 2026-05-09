@@ -117,6 +117,10 @@ function AddCar() {
             formData.append("kilometersDriven", carData.kilometersDriven);
             formData.append("model", carData.model);
             formData.append("company", carData.company);
+            formData.append("owner", carData.owner);
+            formData.append("insurance", carData.insurance);
+            formData.append("features", JSON.stringify(carData.features));
+
             // IMAGES
             carData.images.forEach((image, index) => {
                 formData.append(
@@ -124,6 +128,8 @@ function AddCar() {
                     image
                 );
             });
+            console.log(formData);
+
             const response = await axios.post(
                 `${backendUrl}/api/car/add`,
                 formData,
@@ -186,7 +192,11 @@ function AddCar() {
                     </select>
                     <input type="number" name="kilometersDriven" value={carData.kilometersDriven} onChange={handleChange} placeholder="Kilometers Driven" className="w-full border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-blue-500" />
                     <input type="text" name="owner" value={carData.owner} onChange={handleChange} placeholder="Owner" className="w-full border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-blue-500" />
-                    <input type="text" name="insurance" value={carData.insurance} onChange={handleChange} placeholder="Insurance" className="w-full border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-blue-500" />
+                    <select name="insurance" value={carData.insurance} onChange={handleChange} className="w-full border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="">Insurance</option>
+                        <option value="Valid">Valid</option>
+                        <option value="Expired">Expired</option>
+                    </select>
                     <input type="number" name="price" value={carData.price} onChange={handleChange} placeholder="Price" className="w-full border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-blue-500" />
                     <input type="number" name="seats" value={carData.seats} onChange={handleChange} placeholder="Seats" className="w-full border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-blue-500" />
                     <div className="md:col-span-2">

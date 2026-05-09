@@ -6,7 +6,7 @@ import '../index.css';
 
 function Navbar() {
     return (
-        <div>
+        <div className='sticky top-0 z-50'>
             <nav className="navbar">
                 <div className="container">
                     <Link to="/" className="logo">
