@@ -59,14 +59,14 @@ function App() {
 
         <Route path="/admin/login" element={<Login />} />
         <Route path="/admin/dashboard" element={
-          // <ProtectedRoute>
-          <DashBoard />
-          /* </ProtectedRoute> */
+          <ProtectedRoute>
+            <DashBoard />
+          </ProtectedRoute>
         } />
         <Route path="/admin/addcar" element={
-          // <ProtectedRoute>
-          <AddCar />
-          // </ProtectedRoute>
+          <ProtectedRoute>
+            <AddCar />
+          </ProtectedRoute>
         } />
       </Routes>
       <FloatButton />
