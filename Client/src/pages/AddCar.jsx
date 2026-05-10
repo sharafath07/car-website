@@ -7,32 +7,52 @@ function AddCar() {
 
     const navigate = useNavigate();
     const { token, backendUrl, cars, setCars } = useContext(CarContext);
-
+    const [input, setInput] = useState("");
     const featureOptions = [
-        'ABS',
-        'Airbags',
-        'AC',
-        'Power Windows',
-        'Reverse Camera',
-        'Touch Screen',
-        'Sunroof',
-        'Leather Seats',
-        'Alloy Wheels',
-        'Cruise Control',
-        'Parking Sensors',
-        '360 Camera',
-        'Bluetooth',
-        'Android Auto',
-        'Apple CarPlay',
-        'Fog Lamps',
-        'Keyless Entry',
-        'Push Start',
-        'Navigation',
-        'Ventilated Seats'
+        "ABS",
+        "Airbags",
+        "Reverse Camera",
+        "Parking Sensors",
+        "Touch Screen",
+        "Android Auto",
+        "Apple CarPlay",
+        "Bluetooth",
+        "Cruise Control",
+        "Sunroof",
+        "Leather Seats",
+        "Power Steering",
+        "Power Windows",
+        "Automatic Climate Control",
+        "Keyless Entry"
     ];
 
 
-
+    function addFeature(feature) {
+        const trimmedFeature =
+            feature.trim();
+        if (
+            trimmedFeature === "" ||
+            carData.features.includes(trimmedFeature)
+        ) {
+            return;
+        }
+        setCarData({
+            ...carData,
+            features: [
+                ...carData.features,
+                trimmedFeature
+            ]
+        });
+        setInput("");
+    }
+    function removeFeature(feature) {
+        setCarData({
+            ...carData,
+            features: carData.features.filter(
+                (item) => item !== feature
+            )
+        });
+    }
     const [carData, setCarData] = useState({
         name: '',
         company: '',
@@ -49,9 +69,6 @@ function AddCar() {
         features: [],
         images: []
     });
-
-
-
     function handleChange(e) {
 
         setCarData({
@@ -59,9 +76,6 @@ function AddCar() {
             [e.target.name]: e.target.value
         });
     }
-
-
-
     function handleFeatureChange(feature) {
 
         if (carData.features.includes(feature)) {
@@ -144,7 +158,8 @@ function AddCar() {
             if (response.data.success) {
                 alert("Car added successfully");
                 setCars([...cars, carData]);
-                navigate("/admin/dashboard");
+                console.log(carData);
+                // navigate("/admin/dashboard");
             } else {
                 alert(response.data.message);
             }
@@ -169,10 +184,7 @@ function AddCar() {
                         Enter vehicle details
                     </p>
                 </div>
-                <form
-                    onSubmit={handleSubmit}
-                    className="p-10 grid grid-cols-1 md:grid-cols-2 gap-6"
-                >
+                <form onSubmit={handleSubmit} className="p-10 grid grid-cols-1 md:grid-cols-2 gap-6">
                     <input type="text" name="name" value={carData.name} onChange={handleChange} placeholder="Car Name" className="w-full border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-blue-500" />
                     <input type="text" name="company" value={carData.company} onChange={handleChange} placeholder="Company" className="w-full border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-blue-500" />
                     <input type="text" name="model" value={carData.model} onChange={handleChange} placeholder="Model" className="w-full border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-blue-500" />
@@ -210,30 +222,36 @@ function AddCar() {
                         ></textarea>
                     </div>
                     <div className="md:col-span-2">
-                        <h3 className="text-lg font-semibold text-gray-700 mb-4">
-                            Features
-                        </h3>
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div className="flex gap-3 mb-4">
+                            <input type="text" placeholder="Add feature..." value={input} onChange={(e) => setInput(e.target.value)} className="flex-1 border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 transition" />
+                            <button type="button" onClick={() => addFeature(input)} className="bg-blue-600 hover:bg-blue-700 text-white px-5 rounded-xl transition ">
+                                <i className="fas fa-plus"></i>
+                            </button>
+                        </div>
+                        <div className="flex flex-wrap gap-3 mb-6">
                             {
                                 featureOptions.map((feature) => (
-                                    <label
-                                        key={feature}
-                                        className="flex items-center gap-2 bg-gray-100 px-4 py-3 rounded-xl cursor-pointer hover:bg-blue-50 transition"
-                                    >
-                                        <input
-                                            type="checkbox"
-                                            checked={carData.features.includes(feature)}
-                                            onChange={() =>
-                                                handleFeatureChange(feature)
-                                            }
-                                        />
-                                        <span className="text-sm">
-                                            {feature}
-                                        </span>
-                                    </label>
+                                    <button key={feature} type="button" onClick={() => addFeature(feature)} className="bg-gray-100 hover:bg-blue-100 hover:text-blue-700 px-4 py-2 rounded-full text-sm transition">
+                                        {feature}
+                                    </button>
                                 ))
                             }
                         </div>
+                        <div className="flex flex-wrap gap-3">
+                            {
+                                carData.features.map((feature) => (
+                                    <div key={feature} className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-full ">
+                                        <span>
+                                            {feature}
+                                        </span>
+                                        <button type="button" onClick={() => removeFeature(feature)} className=" text-sm hover:text-red-200 ">
+                                            <i className="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                ))
+                            }
+                        </div>
+
                     </div>
                     <div className="md:col-span-2">
                         <h3 className="text-lg font-semibold text-gray-700 mb-4">
@@ -244,50 +262,24 @@ function AddCar() {
                             <p className="text-gray-600">
                                 Click to upload car images
                             </p>
-                            <input
-                                type="file"
-                                multiple
-                                accept="image/*"
-                                onChange={handleImageUpload}
-                                className="hidden"
-                            />
+                            <input type="file" multiple accept="image/*" onChange={handleImageUpload} className="hidden" />
                         </label>
                         <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mt-6">
                             {
                                 carData.images.map((image, index) => (
-                                    <img
-                                        key={index}
-                                        src={URL.createObjectURL(image)}
-                                        alt=""
-                                        className="w-full h-32 object-cover rounded-xl shadow"
-                                    />
+                                    <img key={index} src={URL.createObjectURL(image)} alt="" className="w-full h-32 object-cover rounded-xl shadow" />
                                 ))
                             }
                         </div>
                     </div>
                     <div className="md:col-span-2">
-                        <button
-                            type="submit"
-                            className="
-                                w-full
-                                bg-gradient-to-r
-                                from-blue-900
-                                to-blue-600
-                                hover:opacity-90
-                                text-white
-                                font-semibold
-                                py-4
-                                rounded-2xl
-                                transition
-                                shadow-lg
-                            "
-                        >
+                        <button type="submit" className="w-full bg-gradient-to-r from-blue-900 to-blue-600 hover:opacity-90 text-white font-semibold py-4 rounded-2xl transition shadow-lg ">
                             Add Car
                         </button>
                     </div>
-                </form>
-            </div>
-        </div>
+                </form >
+            </div >
+        </div >
     );
 }
 

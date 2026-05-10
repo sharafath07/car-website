@@ -3,7 +3,7 @@ import carModel from "../models/carModel.js";
 
 async function addCar(req, res) {
     try {
-        const { name, description, price, year, seats, transmission, fuelType, kilometersDriven, model, company, features, owner, insurance } = req.body;
+        const { name, description, price, year, seats, transmission, fuelType, kilometersDriven, model, company, owner, insurance, features } = req.body;
 
         const image1 = req.files.image1 && req.files.image1[0]
         const image2 = req.files.image2 && req.files.image2[0]
@@ -38,13 +38,15 @@ async function addCar(req, res) {
             company,
             images: imageUrl,
             date: Number(Date.now()),
-            features: JSON.parse(features),
+            features: typeof features === "string"
+                ? JSON.parse(features)
+                : features || [],
             owner,
             insurance
         };
-        console.log(carData);
+        console.log("carData:", carData);
         const car = new carModel(carData);
-        console.log(car);
+        console.log("car:", car);
 
         await car.save();
 
