@@ -22,7 +22,6 @@ function Content() {
         ['fa-shield-alt', 'Insurance', CarData.insurance]
     ];
 
-
     async function fetchCarData() {
         const car = cars.find((item) => item._id === carId);
         if (car) {
@@ -75,8 +74,8 @@ function Content() {
                                 <h3>FEATURES</h3>
                                 <div className="features-grid" id="featuresList">{
                                     CarData && CarData.features ? CarData.features.map((feature, index) => (
-                                        <div key={index} className={`feature-tag ${featureIcons[feature] || 'fa-check-circle'}`} style={{ color: "var(--gold)" }}>
-                                            <i className="fas fa-check-circle"></i> {feature}
+                                        <div key={index} className='feature-tag' style={{ color: "var(--gold)" }}>
+                                            <i className='fas fa-check-circle'></i> {feature}
                                         </div>
                                     )) : null
                                 }</div>
