@@ -11,14 +11,14 @@ function Footer() {
                             <div className="footer-logo">
                                 <div className="footer-logo-icon"><i className="fas fa-car"></i></div>
                                 <div className="footer-logo-text">
-                                    <h2>AUTO DELUX</h2><span>Premium Used Cars</span>
+                                    <h2>AUTO DELUXE</h2><span>Premium Used Cars</span>
                                 </div>
                             </div>
-                            <p>Auto Delux is a trusted used car dealer in Malappuram,Alathoorpadi Kerala. We deal in quality used cars
+                            <p>Auto Deluxe is a trusted used car dealer in Malappuram,Alathoorpadi Kerala. We deal in quality used cars
                                 with best price and transparent deals.</p>
                             <div className="footer-social">
-                                <a href="#"><i className="fab fa-facebook-f"></i></a>
-                                <a href="https://instagram.com" target="_blank"><i className="fab fa-instagram"></i></a>
+                                <a href="https://www.facebook.com/share/1GJnvKYsRY/?mibextid=wwXIfr" target="_blank"><i className="fab fa-facebook-f"></i></a>
+                                <a href="https://www.instagram.com/auto_deluxe_usedcars?igsh=YW5ybHA4OWx1eHh4" target="_blank"><i className="fab fa-instagram"></i></a>
                                 <a href="https://wa.me/919526226011" target="_blank"><i className="fab fa-whatsapp"></i></a>
                             </div>
                         </div>
@@ -76,7 +76,7 @@ function Footer() {
                     </div>
 
                     <div className="footer-bottom">
-                        <span>© 2024 Auto Delux. All Rights Reserved.</span>
+                        <span>© 2024 Auto Deluxe. All Rights Reserved.</span>
                         <span>Designed with <i className="fa-solid fa-heart heart"></i> for Premium Car Buyers</span>
                     </div>
                 </div>

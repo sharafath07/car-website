@@ -74,8 +74,8 @@ function Login() {
                     <button type="submit" className="bg-blue-500 text-white w-80 px-4 py-2 rounded hover:bg-blue-600 transition-colors cursor-pointer">
                         Login
                     </button>
-                    <p className="text-gray-600 mt-3 text-center text-xs">
-                        © 2026 Auto Delux.
+                    <p className="text-gray-600 mt-3 text-center mx-auto text-xs">
+                        © 2026 Auto Deluxe.
                         All rights reserved.
                     </p>
                 </div>

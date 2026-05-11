@@ -13,7 +13,7 @@ function Hero() {
                 <div className="container">
                     <div className="hero-content" data-aos="fade-up" data-aos-duration="700">
                         <div className="hero-eyebrow">Get In Touch</div>
-                        <h1 className="hero-title">Contact Auto Delux</h1>
+                        <h1 className="hero-title">Contact Auto Deluxe</h1>
                         <p className="hero-sub">We are here to help you find your perfect car</p>
                         <div className="breadcrumb">
                             <Link to="/"><i className="fa-solid fa-house" style={{ fontSize: '11px' }}></i> Home</Link>

@@ -11,7 +11,7 @@ function TopBar() {
                         <a href="tel:9526226011"><i className="fas fa-phone"></i> 9526226011</a>
                     </div>
                     <div className="top-bar-right">
-                        <a href="https://www.facebook.com/profile.php?id=100088395416692" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.facebook.com/share/1GJnvKYsRY/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
                             <i className="fab fa-facebook-f"></i>
                         </a>
                         <a href="https://www.instagram.com/auto_deluxe_usedcars?igsh=YW5ybHA4OWx1eHh4" target="_blank" rel="noopener noreferrer">

@@ -70,8 +70,8 @@ function ContactUs() {
 
                             <div className="follow-label">Follow Us</div>
                             <div className="social-icons">
-                                <a href="https://www.facebook.com" target="_blank" className="fb"><i className="fab fa-facebook-f"></i></a>
-                                <a href="https://www.instagram.com" target="_blank" className="ig"><i className="fab fa-instagram"></i></a>
+                                <a href="https://www.facebook.com/share/1GJnvKYsRY/?mibextid=wwXIfr" target="_blank" className="fb"><i className="fab fa-facebook-f"></i></a>
+                                <a href="https://www.instagram.com/auto_deluxe_usedcars?igsh=YW5ybHA4OWx1eHh4" target="_blank" className="ig"><i className="fab fa-instagram"></i></a>
                                 <a href="https://wa.me/919526226011" target="_blank" className="wa"><i className="fab fa-whatsapp"></i></a>
                             </div>
                         </div>

@@ -23,9 +23,9 @@ function NavbarAdmin() {
             <nav className="navbar">
                 <div className="container">
                     <Link to="/" className="logo">
-                        <img src={Logo} alt="Auto Delux Logo" />
+                        <img src={Logo} alt="Auto Deluxe Logo" />
                         <div className="logo-text">
-                            <h1>AUTO DELUX</h1>
+                            <h1>AUTO DELUXE</h1>
                             <span>Premium Used Cars</span>
                         </div>
                     </Link>
