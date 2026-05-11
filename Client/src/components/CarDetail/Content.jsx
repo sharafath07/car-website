@@ -32,7 +32,24 @@ function Content() {
     }
 
     function submitEnquiry() {
-        const name = document.getElementById("enqName").value.trim();
+        const phone =
+            "919526226011";
+        const message = `
+                    Hello Auto Deluxe,
+
+                    I am interested in:
+
+                    Car: ${CarData.company} ${CarData.model} ${CarData.year}
+                    Price: ₹${CarData.price}
+                    Description:
+                    ${CarData.description}
+
+                    Please share more details.
+                    `;
+        const url =
+            `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+        window.open(url, "_blank");
+
     }
 
     function formatPrice(p) {
@@ -44,7 +61,6 @@ function Content() {
     }
 
     useEffect(() => {
-        console.log(carId, cars);
         fetchCarData()
     }, [cars, carId])
 
@@ -111,8 +127,8 @@ function Content() {
                                 </table>
 
                                 <div className="car-actions">
-                                    <a id="waBtn" href="#" target="_blank" className="btn btn-whatsapp"><i className="fab fa-whatsapp"></i>
-                                        WHATSAPP</a>
+                                    <button id="waBtn" onClick={submitEnquiry} target="_blank" className="btn btn-whatsapp"><i className="fab fa-whatsapp"></i>
+                                        WHATSAPP</button>
                                     <a href="tel:9526226011" className="btn btn-accent"><i className="fas fa-phone"></i> CALL NOW</a>
                                 </div>
 

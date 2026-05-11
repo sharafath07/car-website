@@ -2014,6 +2014,10 @@ textarea.form-control {
     display: flex;
   }
 
+  button.open {
+    display: flex;
+  }
+
   .hamburger {
     display: flex;
   }
