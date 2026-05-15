@@ -12,11 +12,6 @@ function CarCard({ id, name, image, fuel, year, transmission, km, price }) {
                     e.target.src = "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=600&q=80";
                 }} />
                 <span className="car-card-badge">{fuel}</span>
-                <button className="car-card-fav"
-                    // onClick="toggleFav(${car._id}, this)" 
-                    title="Favourite">
-                    <i className="fa${isFav(car._id) ? 's' : 'r'} fa-heart"></i>
-                </button>
             </div>
 
             <div className="car-card-body">
