@@ -8,7 +8,7 @@ function VisionMission() {
                 <div className="container">
                     <div className="section-title" data-aos="fade-up">
                         <h2>WHY CHOOSE US</h2>
-                        <p>What makes Auto Deluxe the best choice</p>
+                        <p>What makes Yem Key the best choice</p>
                     </div>
                     <div className="vm-grid">
                         <div className="vm-card" data-aos="fade-up" data-aos-delay="0">

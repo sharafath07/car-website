@@ -11,10 +11,10 @@ function Footer() {
                             <div className="footer-logo">
                                 <div className="footer-logo-icon"><i className="fas fa-car"></i></div>
                                 <div className="footer-logo-text">
-                                    <h2>AUTO DELUXE</h2><span>Premium Used Cars</span>
+                                    <h2>YEM KEY</h2><span>Premium Used Cars</span>
                                 </div>
                             </div>
-                            <p>Auto Deluxe is a trusted used car dealer in Malappuram,Alathoorpadi Kerala. We deal in quality used cars
+                            <p>Yem Key is a trusted used car dealer in Malappuram,Alathoorpadi Kerala. We deal in quality used cars
                                 with best price and transparent deals.</p>
                             <div className="footer-social">
                                 <a href="https://www.facebook.com/share/1GJnvKYsRY/?mibextid=wwXIfr" target="_blank"><i className="fab fa-facebook-f"></i></a>
@@ -59,7 +59,7 @@ function Footer() {
                     </div>
                 </div>
                 <div className="footer-bottom">
-                    <div className="container">© 2024 Auto Deluxe. All Rights Reserved.</div>
+                    <div className="container">© 2024 Yem Key. All Rights Reserved.</div>
                 </div>
             </footer>
 

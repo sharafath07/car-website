@@ -5,7 +5,7 @@ function Footer() {
         <div>
             <footer className="footer">
                 <div className="footer-bottom">
-                    <div className="container">© 2024 Auto Deluxe. All Rights Reserved. | <a href="index.html"
+                    <div className="container">© 2024 Yem Key. All Rights Reserved. | <a href="index.html"
                         style={{ color: "var(--gold)" }}>Home</a></div>
                 </div>
             </footer>

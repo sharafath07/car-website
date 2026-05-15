@@ -75,7 +75,7 @@ function Login() {
                         Login
                     </button>
                     <p className="text-gray-600 mt-3 text-center mx-auto text-xs">
-                        © 2026 Auto Deluxe.
+                        © 2026 Yem Key.
                         All rights reserved.
                     </p>
                 </div>

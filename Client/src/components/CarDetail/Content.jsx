@@ -35,7 +35,7 @@ function Content() {
         const phone =
             "919526226011";
         const message = `
-                    Hello Auto Deluxe,
+                    Hello Yem Key,
 
                     I am interested in:
 

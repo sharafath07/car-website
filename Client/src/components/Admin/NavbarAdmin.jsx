@@ -23,11 +23,11 @@ function NavbarAdmin() {
             <nav className="navbar">
                 <div className="container">
                     <Link to="/" className="logo">
-                        <img src={Logo} alt="Auto Deluxe Logo" />
-                        <div className="logo-text">
-                            <h1>AUTO DELUXE</h1>
+                        <img src={Logo} alt="Yem Key Logo" />
+                        {/* <div className="logo-text">
+                            <h1>YEM KEY</h1>
                             <span>Premium Used Cars</span>
-                        </div>
+                        </div> */}
                     </Link>
                     <div className="hamburger" onClick={() => setIsOpen(!isOpen)}>
                         <span></span>
